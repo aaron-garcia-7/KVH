@@ -68,10 +68,10 @@ const ScArrow = styled('div')`
 }
 
 .svg-elem-arrow {
-  -webkit-animation: animate-arrow-stroke-1 1s cubic-bezier(0.47, 0, 0.745, 0.715) 2s both,
-                       animate-arrow-fill-1 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2.8s both;
-          animation: animate-arrow-stroke-1 1s cubic-bezier(0.47, 0, 0.745, 0.715) 2s both,
-               animate-arrow-fill-1 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2.8s both;
+  -webkit-animation: animate-arrow-stroke-1 1s cubic-bezier(0.47, 0, 0.745, 0.715) 2.6s both,
+                       animate-arrow-fill-1 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 3.4s both;
+          animation: animate-arrow-stroke-1 1s cubic-bezier(0.47, 0, 0.745, 0.715) 2.6s both,
+               animate-arrow-fill-1 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 3.4s both;
 }
 
 `

@@ -8,11 +8,8 @@ function ThemeToggle({darkTheme, setDarkTheme}) {
         transform: 'rotate(180deg)',
     }
     const activeImg = {
-        transform: 'rotate(-180deg)',
+        transform: 'rotate(180deg)',
         cursor: 'pointer',
-    }
-    const coverStyle = {
-        background: darkTheme ? "var(--dark)" : "var(--light)",
     }
 
   return (
@@ -21,7 +18,6 @@ function ThemeToggle({darkTheme, setDarkTheme}) {
             <img src={sun} alt="" onClick={() => setDarkTheme(true)} style={!darkTheme ? activeImg : null}/>
             <img src={moon} alt="" onClick={() => setDarkTheme(false)} style={darkTheme ? activeImg : null}/>
         </div>
-        {/* <div className="cover" style={coverStyle} /> */}
     </ScThemeToggle>
   )
 }
@@ -29,34 +25,21 @@ function ThemeToggle({darkTheme, setDarkTheme}) {
 const ScThemeToggle = styled('div')`
     position: absolute;
     left: 50%;
-    transform: translate(-50%, 20%);
+    transform: translate(-50%, 34%);
     opacity: 0;
     pointer-events: none;
     animation: trueFade 1s ease forwards 3.7s;
     .spinner {
-        /* border: 2px dashed red; */
-        /* height: 8rem; */
-        height: calc(6rem + 2vw);
+        height: calc(4rem + 2vw);
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        transition: 0.6s ease;
+        transition: 1s cubic-bezier(.5,-0.56,.62,1.53);
         img {
-            /* width: 2rem; */
-            /* height: 2rem; */
             width: calc(1rem + 1vw);
             height: calc(1rem + 1vw);
-            transition: 0.6s ease;
+            transition: 1.4s cubic-bezier(.5,-0.56,.62,1.53);
         }
-    }
-    .cover {
-        position: absolute;
-        left: 50%;
-        top: 40%;
-        transform: translate(-50%, 10%);
-        width: 12rem;
-        height: 4rem;
-        transition: 0.6s ease;
     }
 `
 

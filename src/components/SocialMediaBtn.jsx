@@ -10,7 +10,7 @@ import linkedin from '../images/graphics/linkedin.svg'
 import github from '../images/graphics/github.svg'
 import styled from 'styled-components'
 
-function SocialMediaBtn({darkTheme}) {
+function SocialMediaBtn({darkTheme, pageWidth}) {
     const [menuOpen, setMenuOpen] = useState(false);
 
     const bubbleStyle = {
@@ -28,23 +28,31 @@ function SocialMediaBtn({darkTheme}) {
     }
     const twitterStyle = {
         opacity: menuOpen ? 1 : 0,
-        transform: menuOpen ? "scale(0.9)" : "scale(0)",
+        transform: menuOpen && pageWidth > 1440 ? "scale(1.1)" 
+        : menuOpen && pageWidth <= 1440 && pageWidth > 768 ? "scale(0.9)" 
+        : menuOpen && pageWidth <= 768 ? "scale(0.7)" 
+        : "scale(0)",
         transition: "transform 0.8s cubic-bezier(.56,-0.57,.59,1.32) 0.2s, opacity 1s ease 0.4s",
     }
     const linkedinStyle = {
         opacity: menuOpen ? 1 : 0,
-        transform: menuOpen ? "scale(0.9)" : "scale(0)",
-        transition: "transform 0.8s cubic-bezier(.56,-0.57,.59,1.32) 0.3s, opacity 1s ease 0.5s",
+        transform: menuOpen && pageWidth > 1440 ? "scale(1.1)" 
+        : menuOpen && pageWidth <= 1440 && pageWidth > 768 ? "scale(0.9)" 
+        : menuOpen && pageWidth <= 768 ? "scale(0.7)" 
+        : "scale(0)",        transition: "transform 0.8s cubic-bezier(.56,-0.57,.59,1.32) 0.3s, opacity 1s ease 0.5s",
     }
     const githubStyle = {
         opacity: menuOpen ? 1 : 0,
-        transform: menuOpen ? "scale(0.9)" : "scale(0)",
-        transition: "transform 0.8s cubic-bezier(.56,-0.57,.59,1.32) 0.4s, opacity 1s ease 0.6s",
+        transform: menuOpen && pageWidth > 1440 ? "scale(1.1)" 
+        : menuOpen && pageWidth <= 1440 && pageWidth > 768 ? "scale(0.9)" 
+        : menuOpen && pageWidth <= 768 ? "scale(0.7)" 
+        : "scale(0)",        transition: "transform 0.8s cubic-bezier(.56,-0.57,.59,1.32) 0.4s, opacity 1s ease 0.6s",
     }
 
   return (
     <ScSocialMediaBtn>
-        <div className="button">
+        {/* <div className="button" tabIndex={2} onTabFocus={() => {setMenuOpen(true)}}> */}
+        <div className="button" tabIndex={2}>
             <div className="roundText">
                 <img src={darkTheme ? socialTextWhite : socialText} style={toggleSocialText} alt="social" />
                 <img src={closeText} style={toggleCloseText} alt="close" />
@@ -76,7 +84,7 @@ function SocialMediaBtn({darkTheme}) {
 
 const ScSocialMediaBtn = styled('div')`
     /* border: 2px solid black; */
-    top: 1rem;
+    top: 2rem;
     left: 4vw;
     width: 6rem;
     height: 18rem;
@@ -132,8 +140,8 @@ const ScSocialMediaBtn = styled('div')`
         position: absolute;
         top: 1.4rem;
         left: 1.4rem;
-        width: 10rem;
-        height: 10rem;
+        width: 8rem;
+        height: 8rem;
         z-index: -1;
         li {
             position: absolute;
@@ -142,8 +150,8 @@ const ScSocialMediaBtn = styled('div')`
             bottom: 0;
         }
         .linkedinItem {
-            bottom: 10%;
-            right: 10%;
+            bottom: 14%;
+            right: 14%;
         }
         .githubItem {
             right: 0;
@@ -171,6 +179,7 @@ const ScSocialMediaBtn = styled('div')`
         ul {
             width: 6.8rem;
             height: 6.8rem;
+            }
         }
     }
 

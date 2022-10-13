@@ -7,17 +7,17 @@ import Name2 from "../../components/Name2";
 import SocialMediaBtn from "../../components/SocialMediaBtn";
 // import arrow from "../../images/graphics/arrow.svg";
 
-function Hero({ darkTheme, setDarkTheme }) {
+function Hero({ darkTheme, setDarkTheme, pageWidth }) {
   const roleStyle = {
     color: !darkTheme ? "#22283100" : "#dddddd00",
     animation: !darkTheme
-      ? "fadeRole 2s ease 3s forwards"
-      : "fadeRole2 2s ease 3s forwards",
+      ? "fadeRole 2s ease 2.4s forwards"
+      : "fadeRole2 2s ease 2.4s forwards",
   };
 
   return (
     <ScHero>
-      <SocialMediaBtn darkTheme={darkTheme} />
+      <SocialMediaBtn darkTheme={darkTheme} pageWidth={pageWidth} />
       <header className="title">
         {!darkTheme && <Name />}
         {darkTheme && <Name2 />}
@@ -36,7 +36,14 @@ function Hero({ darkTheme, setDarkTheme }) {
           <Arrow darkTheme={darkTheme} />
           <Arrow2 darkTheme={darkTheme} />
         </h3>
-        <a href="" className="cta">
+        <a
+          href="#"
+          className="cta"
+          tabIndex={1}
+          onFocus={() => {
+            // setMenuOpen(false);
+          }}
+        >
           Contact
         </a>
       </header>
@@ -60,8 +67,8 @@ const ScHero = styled("section")`
   .title {
     /* border: 2px dashed gray; */
     top: 50%;
-    left: 25%;
-    transform: translate(0, -60%);
+    left: 20%;
+    transform: scale(1.1) translate(0, -50%);
     h1 {
       color: var(--red);
       /* font-size: calc(3.2rem + 4vw); */
@@ -78,7 +85,7 @@ const ScHero = styled("section")`
       position: absolute;
       top: 100%;
       left: 100%;
-      width: 40%;
+      width: 50%;
       color: #22283155;
       font-size: calc(0.8rem + 0.6vw);
       font-weight: 300;
@@ -108,6 +115,9 @@ const ScHero = styled("section")`
       font-weight: 500;
       text-transform: uppercase;
       letter-spacing: 0.1rem;
+      opacity: 0;
+      pointer-events: none;
+      animation: trueFade 1s ease forwards 3.4s;
     }
   }
 
@@ -125,6 +135,9 @@ const ScHero = styled("section")`
     justify-content: center;
     align-items: flex-start;
     padding-top: 2rem;
+    opacity: 0;
+    pointer-events: none;
+    animation: trueFade 1s ease forwards 3.7s;
     p {
       color: var(--light);
       text-transform: uppercase;
@@ -153,6 +166,7 @@ const ScHero = styled("section")`
   @media (max-width: 1440px) {
     .title {
       left: 17%;
+      transform: scale(1) translate(0, -60%);
     }
   }
 
