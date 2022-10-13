@@ -1,6 +1,4 @@
 import React, {useState} from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTwitter, faLinkedinIn, faGithubAlt } from '@fortawesome/free-brands-svg-icons'
 import socialText from '../images/graphics/socialText.svg';
 import socialTextWhite from '../images/graphics/socialTextWhite.svg';
 import closeText from '../images/graphics/closeText.svg';
@@ -51,8 +49,7 @@ function SocialMediaBtn({darkTheme, pageWidth}) {
 
   return (
     <ScSocialMediaBtn>
-        {/* <div className="button" tabIndex={2} onTabFocus={() => {setMenuOpen(true)}}> */}
-        <div className="button" tabIndex={2}>
+        <div className="button">
             <div className="roundText">
                 <img src={darkTheme ? socialTextWhite : socialText} style={toggleSocialText} alt="social" />
                 <img src={closeText} style={toggleCloseText} alt="close" />
@@ -84,7 +81,7 @@ function SocialMediaBtn({darkTheme, pageWidth}) {
 
 const ScSocialMediaBtn = styled('div')`
     /* border: 2px solid black; */
-    top: 2rem;
+    top: 1rem;
     left: 4vw;
     width: 6rem;
     height: 18rem;
@@ -181,12 +178,8 @@ const ScSocialMediaBtn = styled('div')`
             height: 6.8rem;
             }
         }
-    }
 
     @media (max-width: 520px) {
-        /* .button {
-            transform: scale(0.8);
-        } */
         ul {
             top: 1.8rem;
             left: 1.8rem;
