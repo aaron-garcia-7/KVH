@@ -4,19 +4,18 @@ import sun from '../images/graphics/sun.svg';
 import moon from '../images/graphics/moon.svg';
 
 function ThemeToggle({darkTheme, setDarkTheme}) {
-    const activeSpinner = {
+    const rotate = {
         transform: 'rotate(180deg)',
     }
-    const activeImg = {
-        transform: 'rotate(180deg)',
-        cursor: 'pointer',
+    const rotateBack = {
+        transform: 'rotate(-180deg)',
     }
 
   return (
     <ScThemeToggle>
-        <div className="spinner" style={darkTheme ? activeSpinner : null}>
-            <img src={sun} alt="" onClick={() => setDarkTheme(true)} style={!darkTheme ? activeImg : null}/>
-            <img src={moon} alt="" onClick={() => setDarkTheme(false)} style={darkTheme ? activeImg : null}/>
+        <div className="spinner" style={darkTheme ? rotate : null}>
+            <img src={sun} alt="" onClick={() => setDarkTheme(true)} style={!darkTheme ? rotateBack : null}/>
+            <img src={moon} alt="" onClick={() => setDarkTheme(false)} style={darkTheme ? rotate : null}/>
         </div>
     </ScThemeToggle>
   )
@@ -39,7 +38,12 @@ const ScThemeToggle = styled('div')`
             width: calc(1rem + 1vw);
             height: calc(1rem + 1vw);
             transition: 1.4s cubic-bezier(.5,-0.56,.62,1.53);
+            cursor: pointer;
         }
+    }
+
+    @media (max-width: 520px) {
+        transform: translate(-64%, 34%);
     }
 `
 

@@ -110,6 +110,58 @@ const ScNav = styled('nav')`
         }
       }
     }
+
+    @media (max-width: 1024px) {
+      top: 2.8rem;
+      .navLinks {
+        .navItem {
+          &:hover {
+            div {
+              transform: translate(0, -84%);
+            }
+          }
+        }
+      }
+    }
+
+    @media (max-width: 768px) {
+      .navLinks {
+        transform: translate(0, -20%);
+        .navItem {
+          /* margin: 0 2vw; */
+          div {
+            .link {
+              &::after {
+                transform: translate(0, 20%);
+              }
+            }
+          }
+          &:hover {
+            div {
+              transform: translate(0, -90%);
+            }
+          }
+        }
+      }
+    }
+
+    @media (max-width: 520px) {
+      .navLinks {
+        .navItem {
+          div {
+            .link {
+              &::after {
+              }
+            }
+          }
+          &:hover {
+            div {
+              transform: translate(0, -82%);
+            }
+          }
+        }
+      }
+    }
 `
 
 export default Nav

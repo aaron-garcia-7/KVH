@@ -1,18 +1,43 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Arrow from "../../components/Arrow";
 import Arrow2 from "../../components/Arrow2";
 import Name from "../../components/Name";
 import Name2 from "../../components/Name2";
 import SocialMediaBtn from "../../components/SocialMediaBtn";
-// import arrow from "../../images/graphics/arrow.svg";
 
 function Hero({ darkTheme, setDarkTheme, pageWidth }) {
+  const [fromTop, setFromTop] = useState(false);
+
+  const checkFromTop = () => {
+    window.scrollY > 200 ? setFromTop(true) : setFromTop(false);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", checkFromTop);
+
+    return () => window.removeEventListener("scroll", checkFromTop);
+  }, [fromTop]);
+
   const roleStyle = {
     color: !darkTheme ? "#22283100" : "#dddddd00",
     animation: !darkTheme
       ? "fadeRole 2s ease 2.4s forwards"
       : "fadeRole2 2s ease 2.4s forwards",
+  };
+
+  const bubbleStyle = {
+    transform: fromTop
+      ? "translate(0, 56%) scale(0)"
+      : "translate(0, 56%) scale(1)",
+    transition: fromTop
+      ? "1s cubic-bezier(.16,-0.4,.74,1)"
+      : "1s cubic-bezier(.3,-0.05,.6,1.36)",
+  };
+
+  const scrollTextStyle = {
+    transform: fromTop ? "translate(-50%, -50%)" : "translate(-50%, -200%)",
+    transition: fromTop ? "0.4s ease" : "0.4s ease 0.6s",
   };
 
   return (
@@ -47,8 +72,8 @@ function Hero({ darkTheme, setDarkTheme, pageWidth }) {
           Contact
         </a>
       </header>
-      <div className="scrollBubble">
-        <p>Scroll</p>
+      <div className="scrollBubble" style={bubbleStyle}>
+        <p style={scrollTextStyle}>Scroll</p>
       </div>
     </ScHero>
   );
@@ -96,10 +121,12 @@ const ScHero = styled("section")`
     }
     &::before {
       content: "01";
+      font-family: "Raleway", sans-serif;
+      font-size: calc(0.7rem + 0.7vw);
+      letter-spacing: 0.2rem;
       position: absolute;
       top: 0;
       left: -2vw;
-      font-size: calc(0.6rem + 0.6vw);
       opacity: 0;
       animation: fade 2s ease 3.6s forwards;
     }
@@ -124,21 +151,17 @@ const ScHero = styled("section")`
   .scrollBubble {
     bottom: 0;
     left: 65%;
-    transform: translate(0, 56%);
     background: var(--red);
-    /* width: 12vw; */
     width: calc(6rem + 6vw);
-    /* height: 12vw; */
     height: calc(6rem + 6vw);
     border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    padding-top: 2rem;
     opacity: 0;
     pointer-events: none;
     animation: trueFade 1s ease forwards 3.7s;
     p {
+      position: absolute;
+      top: 50%;
+      left: 50%;
       color: var(--light);
       text-transform: uppercase;
       font-size: calc(0.6rem + 0.6vw);

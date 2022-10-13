@@ -43,6 +43,12 @@ const GlobalStyles = createGlobalStyle`
         list-style: none;
     }
 
+    .a11y {
+        display: none;
+        opacity: 0;
+        pointer-events: none;
+    }
+
     @keyframes fade {
         to {
             opacity: 1;

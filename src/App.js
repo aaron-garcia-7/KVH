@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 // import { Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
-// import Footer from "./components/Footer";
-// import Nav from "./components/Nav";
 import GlobalStyles from "./GlobalStyles";
 import Nav from "./components/Nav";
 
@@ -20,6 +18,11 @@ function App() {
 
     return () => window.removeEventListener("resize", checkWidth);
   }, [pageWidth]);
+
+  // Scroll to top on page refresh
+  window.onbeforeunload = () => {
+    window.scrollTo(0, 0);
+  };
 
   return (
     <div>

@@ -81,7 +81,9 @@ function SocialMediaBtn({darkTheme, pageWidth}) {
 
 const ScSocialMediaBtn = styled('div')`
     /* border: 2px solid black; */
-    top: 1rem;
+    /* top: 2rem; */
+    /* top: 1.6vw; */
+    top: calc(1rem + 0.8vw);
     left: 4vw;
     width: 6rem;
     height: 18rem;
