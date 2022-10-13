@@ -39,6 +39,22 @@ const GlobalStyles = createGlobalStyle`
         text-decoration: none;
     }
 
+    ul {
+        list-style: none;
+    }
+
+    @keyframes fade {
+        to {
+            opacity: 1;
+        }
+    }
+    @keyframes trueFade {
+        to {
+            opacity: 1;
+            pointer-events: all;
+        }
+    }
+
 `;
 
 export default GlobalStyles;

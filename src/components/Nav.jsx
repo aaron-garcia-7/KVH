@@ -14,9 +14,11 @@ function Nav({darkTheme, setDarkTheme}) {
             <li>
                 <a href="">Work</a>
             </li>
+            |
             <li>
                 <a href="">About</a>
             </li>
+            |
             <li>
                 <a href="">Resume</a>
             </li>
@@ -42,7 +44,9 @@ const ScNav = styled('nav')`
     }
     .navLinks {
       display: flex;
-      list-style: none;
+      opacity: 0;
+      pointer-events: none;
+      animation: trueFade 1s ease forwards 4s;
       li {
         margin: 0 1vw;
         a {

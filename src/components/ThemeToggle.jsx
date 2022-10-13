@@ -30,6 +30,9 @@ const ScThemeToggle = styled('div')`
     position: absolute;
     left: 50%;
     transform: translate(-50%, 20%);
+    opacity: 0;
+    pointer-events: none;
+    animation: trueFade 1s ease forwards 3.7s;
     .spinner {
         /* border: 2px dashed red; */
         /* height: 8rem; */
