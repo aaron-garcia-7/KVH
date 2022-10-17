@@ -8,8 +8,8 @@ import linkedin from '../images/graphics/linkedin.svg'
 import github from '../images/graphics/github.svg'
 import styled from 'styled-components'
 
-function SocialMediaBtn({darkTheme, pageWidth}) {
-    const [menuOpen, setMenuOpen] = useState(false);
+function SocialMediaBtn({darkTheme, pageWidth, menuOpen, setMenuOpen}) {
+    // const [menuOpen, setMenuOpen] = useState(false);
 
     const bubbleStyle = {
         background: menuOpen ? "var(--red)" : "var(--blue)",
@@ -57,20 +57,21 @@ function SocialMediaBtn({darkTheme, pageWidth}) {
             <div className="bubble" style={bubbleStyle} onClick={() => setMenuOpen(prev => !prev)}>
                 <img src={plus} alt="" />
             </div>
+            <div className="tabIndex" tabIndex={2} onFocus={() => setMenuOpen(true)}/>
         </div>
         <ul>
             <li className='twitterItem' style={twitterStyle}>
-                <a href="https://twitter.com/aaron_garcia_7" target="_blank" rel="noreferrer">
+                <a href="https://twitter.com/aaron_garcia_7" target="_blank" rel="noreferrer" tabIndex={3}>
                     <img src={twitter} alt="" />
                 </a>
             </li>
             <li className='linkedinItem' style={linkedinStyle}>
-                <a href="https://www.linkedin.com/in/aaron-garcia-3b7081211/" target="_blank" rel="noreferrer">
+                <a href="https://www.linkedin.com/in/aaron-garcia-3b7081211/" target="_blank" rel="noreferrer" tabIndex={4}>
                     <img src={linkedin} alt="" />
                 </a>
             </li>
             <li className='githubItem' style={githubStyle}>
-                <a href="https://github.com/aaron-garcia-7" target="_blank" rel="noreferrer">
+                <a href="https://github.com/aaron-garcia-7" target="_blank" rel="noreferrer" tabIndex={5}>
                     <img src={github} alt="" />
                 </a>
             </li>
@@ -131,6 +132,11 @@ const ScSocialMediaBtn = styled('div')`
                 width: 1.2rem;
                 height: 1.2rem;
             }
+        }
+        .tabIndex {
+            width: 100%;
+            height: 100%;
+            z-index: -1;
         }
     }
     ul {

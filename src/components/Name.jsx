@@ -50,16 +50,19 @@ const ScName = styled('div')`
     position: absolute;
     top: 1.8rem;
     z-index: 2;
-    /* transform: scale(1.2); */
 
     @media (max-width: 1440px) {
-        /* top: -0.8rem; */
-        /* left: -3.8rem; */
         top: 1.8rem;
         transform: scale(1);
     }
 
     @media (max-width: 768px) {
+        top: -0.8rem;
+        left: -3.8rem;
+        transform: scale(0.74);
+    }
+
+    @media (max-height: 580px) {
         top: -0.8rem;
         left: -3.8rem;
         transform: scale(0.74);

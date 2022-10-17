@@ -7,6 +7,7 @@ const GlobalStyles = createGlobalStyle`
         --dark: #222831;
         --blue: #30475E;
         --red: #F05454;
+        /* --topDistance: calc(32rem + 24vw); */ // For Mouse Div
     }
 
     * {

@@ -8,6 +8,7 @@ import SocialMediaBtn from "../../components/SocialMediaBtn";
 
 function Hero({ darkTheme, setDarkTheme, pageWidth }) {
   const [fromTop, setFromTop] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const checkFromTop = () => {
     window.scrollY > 200 ? setFromTop(true) : setFromTop(false);
@@ -42,7 +43,12 @@ function Hero({ darkTheme, setDarkTheme, pageWidth }) {
 
   return (
     <ScHero>
-      <SocialMediaBtn darkTheme={darkTheme} pageWidth={pageWidth} />
+      <SocialMediaBtn
+        darkTheme={darkTheme}
+        pageWidth={pageWidth}
+        menuOpen={menuOpen}
+        setMenuOpen={setMenuOpen}
+      />
       <header className="title">
         {!darkTheme && <Name />}
         {darkTheme && <Name2 />}
@@ -66,7 +72,7 @@ function Hero({ darkTheme, setDarkTheme, pageWidth }) {
           className="cta"
           tabIndex={1}
           onFocus={() => {
-            // setMenuOpen(false);
+            setMenuOpen(false);
           }}
         >
           Contact
@@ -80,7 +86,6 @@ function Hero({ darkTheme, setDarkTheme, pageWidth }) {
 }
 
 const ScHero = styled("section")`
-  /* border: 2px dashed red; */
   width: 100vw;
   height: 100vh;
   min-height: 32rem;
@@ -90,13 +95,11 @@ const ScHero = styled("section")`
   }
 
   .title {
-    /* border: 2px dashed gray; */
     top: 50%;
     left: 20%;
     transform: scale(1.1) translate(0, -50%);
     h1 {
       color: var(--red);
-      /* font-size: calc(3.2rem + 4vw); */
       font-size: 8.1rem;
       font-weight: 600;
       text-transform: uppercase;
@@ -105,7 +108,6 @@ const ScHero = styled("section")`
       animation: fadeName 2s ease 3.6s forwards;
     }
     h3 {
-      /* border: 2px dashed gray; */
       font-family: "Raleway", sans-serif;
       position: absolute;
       top: 100%;
@@ -132,7 +134,6 @@ const ScHero = styled("section")`
     }
     .cta {
       position: absolute;
-      /* bottom: -42%; */
       bottom: -38%;
       left: 0;
       padding: 1rem 2rem;
@@ -215,10 +216,22 @@ const ScHero = styled("section")`
   @media (max-width: 520px) {
     .title {
       h3 {
-        /* border: 2px dashed gray; */
         width: 46%;
         font-weight: 400;
         transform: translate(-80%, 10%);
+      }
+    }
+  }
+
+  // Max Height
+  @media (max-height: 580px) {
+    .title {
+      left: calc(8% + 8vw);
+      h1 {
+        font-size: 6rem;
+      }
+      h3 {
+        width: 60%;
       }
     }
   }

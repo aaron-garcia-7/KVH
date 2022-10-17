@@ -1,5 +1,4 @@
 import React from "react";
-// import styled from "styled-components";
 import Hero from "./sections/Hero";
 import Work from "./sections/Work";
 
@@ -11,7 +10,7 @@ function Home({ darkTheme, setDarkTheme, pageWidth }) {
         setDarkTheme={setDarkTheme}
         pageWidth={pageWidth}
       />
-      <Work />
+      <Work pageWidth={pageWidth} />
     </div>
   );
 }

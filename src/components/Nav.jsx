@@ -1,21 +1,22 @@
 import React from 'react'
+import { Link } from 'react-scroll';
 import ThemeToggle from "./ThemeToggle";
 
 import styled from 'styled-components'
 import SocialMediaBtn from './SocialMediaBtn';
 
-function Nav({darkTheme, setDarkTheme}) {
+function Nav({darkTheme, setDarkTheme, pageWidth}) {
   return (
     <ScNav>        
         <div className="spacer1" />
         {/* <SocialMediaBtn /> */}
         <ThemeToggle darkTheme={darkTheme} setDarkTheme={setDarkTheme} />
         <ul className="navLinks">
-            <li className='navItem'>
+            <Link className='navItem' to="work" smooth={'easeInOutQuint'} offset={pageWidth > 768 ? 150 : 40}>
               <div>
                 <a href="" className='link workLink'>Work</a>
               </div>
-            </li>
+            </Link>
             <li>
               <div>
               |

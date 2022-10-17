@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from "react";
-// import { Routes, Route } from "react-router-dom";
-
-import Home from "./pages/Home";
+import { Routes, Route } from "react-router-dom";
 import GlobalStyles from "./GlobalStyles";
+
+// Pages
+import Home from "./pages/Home";
+import BonniesDanceSchool from "./pages/BonniesDanceSchool";
+
+// Components
 import Nav from "./components/Nav";
 
 function App() {
@@ -27,12 +31,33 @@ function App() {
   return (
     <div>
       <GlobalStyles darkTheme={darkTheme} />
-      <Nav darkTheme={darkTheme} setDarkTheme={setDarkTheme} />
-      <Home
+      <Nav
         darkTheme={darkTheme}
         setDarkTheme={setDarkTheme}
         pageWidth={pageWidth}
       />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Home
+              darkTheme={darkTheme}
+              setDarkTheme={setDarkTheme}
+              pageWidth={pageWidth}
+            />
+          }
+        />
+        <Route
+          path="/bonnies-dance-school"
+          element={
+            <BonniesDanceSchool
+              darkTheme={darkTheme}
+              setDarkTheme={setDarkTheme}
+              pageWidth={pageWidth}
+            />
+          }
+        />
+      </Routes>
     </div>
   );
 }
