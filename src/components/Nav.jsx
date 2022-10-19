@@ -1,22 +1,28 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom';
 import { Link } from 'react-scroll';
 import ThemeToggle from "./ThemeToggle";
 
 import styled from 'styled-components'
-import SocialMediaBtn from './SocialMediaBtn';
 
-function Nav({darkTheme, setDarkTheme, pageWidth}) {
+function Nav({darkTheme, setDarkTheme, pageWidth, atHome, setAtHome}) {
   return (
     <ScNav>        
         <div className="spacer1" />
         {/* <SocialMediaBtn /> */}
         <ThemeToggle darkTheme={darkTheme} setDarkTheme={setDarkTheme} />
         <ul className="navLinks">
-            <Link className='navItem' to="work" smooth={'easeInOutQuint'} offset={pageWidth > 768 ? 150 : 40}>
+            {atHome && <Link className='navItem' to="work" smooth={'easeInOutQuint'} offset={pageWidth > 768 ? 150 : 40}>
               <div>
-                <a href="" className='link workLink'>Work</a>
+                <p className='text workText'>Work</p>
+                {/* <a href="" className='link workLink'>Work</a> */}
               </div>
-            </Link>
+            </Link>}
+            {!atHome && <NavLink className='navItem' to={(-1)} onClick={() => setAtHome(true)}>
+              <div>
+                <p className='text homeText'>Home</p>
+              </div>
+            </NavLink>}
             <li>
               <div>
               |
@@ -24,7 +30,7 @@ function Nav({darkTheme, setDarkTheme, pageWidth}) {
             </li>
             <li className='navItem'>
               <div>
-                <a href="" className='link aboutLink'>About</a>
+                <p className='text aboutText'>About</p>
               </div>
             </li>
             <li>
@@ -34,7 +40,7 @@ function Nav({darkTheme, setDarkTheme, pageWidth}) {
             </li>
             <li className='navItem'>
               <div>
-                <a href="" className='link resumeLink'>Resume</a>
+                <p className='text resumeText'>Resume</p>
               </div>
             </li>
         </ul>
@@ -68,42 +74,44 @@ const ScNav = styled('nav')`
         div {
           transform: translate(0, 0);
           transition: 0.6s cubic-bezier(.53,-0.48,.48,1.4);
-          .link {
+          .text {
             position: relative;
             font-size: calc(0.5rem + 0.6vw);
             text-decoration: none;
             text-transform: uppercase;
             transition: 0.4s ease;
+            cursor: pointer;
+            &::after {
+              position: absolute;
+              top: 100%;
+              left: 0;
+            }
           }
-          .workLink {
+          .workText {
             &::after {
               content: 'work';
-              position: absolute;
-              top: 100%;
-              left: 0;
             }
           }
-          .aboutLink {
+          .aboutText {
             &::after {
               content: 'about';
-              position: absolute;
-              top: 100%;
-              left: 0;
             }
           }
-          .resumeLink {
+          .resumeText {
             &::after {
               content: 'resume';
-              position: absolute;
-              top: 100%;
-              left: 0;
+            }
+          }
+          .homeText {
+            &::after {
+              content: 'home';
             }
           }
         }
         &:hover {
           div {
             transform: translate(0, -100%);
-            .link {
+            .text {
               opacity: 0.6;
               transition: 0.4s ease 0.4s;
             }
@@ -112,13 +120,21 @@ const ScNav = styled('nav')`
       }
     }
 
-    @media (max-width: 1024px) {
+    @media (max-width: 1224px) {
       top: 2.8rem;
       .navLinks {
         .navItem {
+          div {
+            transform: translate(0, 10%);
+            .text {
+            &::after {
+              top: 120%;
+            }
+          }
+        }
           &:hover {
             div {
-              transform: translate(0, -84%);
+              transform: translate(0, -110%);
             }
           }
         }
@@ -131,7 +147,8 @@ const ScNav = styled('nav')`
         .navItem {
           /* margin: 0 2vw; */
           div {
-            .link {
+            transform: translate(0, 24%);
+            .text {
               &::after {
                 transform: translate(0, 20%);
               }
@@ -139,7 +156,7 @@ const ScNav = styled('nav')`
           }
           &:hover {
             div {
-              transform: translate(0, -90%);
+              transform: translate(0, -120%);
             }
           }
         }
@@ -150,14 +167,14 @@ const ScNav = styled('nav')`
       .navLinks {
         .navItem {
           div {
-            .link {
+            .text {
               &::after {
               }
             }
           }
           &:hover {
             div {
-              transform: translate(0, -82%);
+              /* transform: translate(0, -82%); */
             }
           }
         }

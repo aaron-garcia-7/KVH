@@ -8,6 +8,9 @@ const GlobalStyles = createGlobalStyle`
         --blue: #30475E;
         --red: #F05454;
         /* --topDistance: calc(32rem + 24vw); */ // For Mouse Div
+        --bubble: ${(props) => (props.darkTheme ? "#1B2027" : "#d2d2d2")}
+        --background: ${(props) =>
+          props.darkTheme ? "var(--dark)" : "var(--light)"};            
     }
 
     * {

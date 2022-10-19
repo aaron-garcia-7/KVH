@@ -10,6 +10,7 @@ import BonniesDanceSchool from "./pages/BonniesDanceSchool";
 import Nav from "./components/Nav";
 
 function App() {
+  const [atHome, setAtHome] = useState(true);
   const [darkTheme, setDarkTheme] = useState(false);
   const [pageWidth, setPageWidth] = useState(window.innerWidth);
 
@@ -35,6 +36,8 @@ function App() {
         darkTheme={darkTheme}
         setDarkTheme={setDarkTheme}
         pageWidth={pageWidth}
+        atHome={atHome}
+        setAtHome={setAtHome}
       />
       <Routes>
         <Route
@@ -44,6 +47,7 @@ function App() {
               darkTheme={darkTheme}
               setDarkTheme={setDarkTheme}
               pageWidth={pageWidth}
+              setAtHome={setAtHome}
             />
           }
         />

@@ -13,7 +13,6 @@ function MouseDiv({cardHover, setCardHover, pageWidth}) {
 
     useEffect(() => {
         setPosY(window.scrollY);
-
         window.addEventListener('mousemove', locateMouse);
 
         return () => window.removeEventListener('mousemove', locateMouse);

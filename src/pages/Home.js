@@ -2,7 +2,7 @@ import React from "react";
 import Hero from "./sections/Hero";
 import Work from "./sections/Work";
 
-function Home({ darkTheme, setDarkTheme, pageWidth }) {
+function Home({ darkTheme, setDarkTheme, pageWidth, setAtHome }) {
   return (
     <div>
       <Hero
@@ -10,7 +10,7 @@ function Home({ darkTheme, setDarkTheme, pageWidth }) {
         setDarkTheme={setDarkTheme}
         pageWidth={pageWidth}
       />
-      <Work pageWidth={pageWidth} />
+      <Work pageWidth={pageWidth} setAtHome={setAtHome} />
     </div>
   );
 }
