@@ -8,6 +8,7 @@ import projectData from "../../data/projectData";
 
 function Work({ pageWidth, setAtHome }) {
   const [cardHover, setCardHover] = useState(false);
+  const [cardHover2, setCardHover2] = useState(false);
 
   // Parallax Effect
   const [offset, setOffset] = useState(0);
@@ -19,10 +20,22 @@ function Work({ pageWidth, setAtHome }) {
     return () => window.removeEventListener("scroll", parallaxScroll);
   }, [offset]);
   const parallaxStyle = {
-    // transform: `translate(0, ${offset * 0.05}px)`,
     transform: `translate(0, ${offset * 0.08}px)`,
   };
+  const parallaxStyleBubble = {
+    transform: `translate(0, ${offset * -0.08}px)`,
+  };
   // End Parallax
+
+  const bubbleStyle = {
+    transform: cardHover2 ? "scale(1)" : "scale(0)",
+    transition: cardHover2 ? "0.5s ease" : "0.5s ease 0.2s",
+  };
+
+  const bubbleTextStyle = {
+    opacity: cardHover2 ? 1 : 0,
+    transition: cardHover2 ? "0.8s ease 0.2s" : "0.4s",
+  };
 
   return (
     <ScWork id="work">
@@ -44,28 +57,38 @@ function Work({ pageWidth, setAtHome }) {
           role2={obj.role2}
           date={obj.date}
           url={obj.url}
-          cardHover={cardHover}
           setCardHover={setCardHover}
+          setCardHover2={setCardHover2}
           setAtHome={setAtHome}
         />
       ))}
-      <MouseDiv
-        cardHover={cardHover}
-        setCardHover={setCardHover}
-        pageWidth={pageWidth}
-      />
+      <MouseDiv cardHover={cardHover} />
       <div className="bubbleDiv1" style={parallaxStyle}>
         <div className="bubble1" />
       </div>
-      <div className="bubbleDiv2">
+      <div className="bubbleDiv2 textBubble" style={parallaxStyleBubble}>
         <img src={arrow} alt="" />
+        <div className="innerBubble" style={bubbleStyle}>
+          <p className="bubbleText" style={bubbleTextStyle}>
+            First "production" <br />
+            ready project
+          </p>
+        </div>
+      </div>
+      <div className="bubbleDiv3 textBubble" style={parallaxStyleBubble}>
+        <img src={arrow} alt="" />
+        <div className="innerBubble" style={bubbleStyle}>
+          <p className="bubbleText" style={bubbleTextStyle}>
+            Your Project Here
+          </p>
+        </div>
       </div>
     </ScWork>
   );
 }
 
 const ScWork = styled("section")`
-  height: 320vh;
+  height: 340vh;
   min-height: 146rem;
   > * {
     position: absolute;
@@ -99,11 +122,8 @@ const ScWork = styled("section")`
       }
     }
     aside {
-      /* top: 0; */
       top: 28%;
-      left: -76%;
-      /* left: 0; */
-      /* transform: translate(-100%, 20%); */
+      left: -68%;
     }
   }
   #card2 {
@@ -116,11 +136,8 @@ const ScWork = styled("section")`
       }
     }
     aside {
-      /* bottom: 40%; */
-      right: -76%;
+      right: -68%;
       bottom: 0;
-      /* right: 0; */
-      /* transform: translate(100%, -20%); */
     }
   }
   #card3 {
@@ -133,11 +150,8 @@ const ScWork = styled("section")`
       }
     }
     aside {
-      /* bottom: 50%; */
       bottom: 12%;
-      right: -86%;
-      /* right: 0; */
-      /* transform: translate(100%, 50%); */
+      right: -80%;
     }
   }
   #card4 {
@@ -150,16 +164,14 @@ const ScWork = styled("section")`
       }
     }
     aside {
-      /* bottom: 50%; */
-      right: -76%;
-      bottom: 0;
-      /* right: 0; */
-      /* transform: translate(100%, -60%); */
+      right: -68%;
+      bottom: -18%;
     }
   }
 
   .bubbleDiv1 {
-    /* border: 1px solid black; */
+    top: 4%;
+    right: 0;
     overflow: hidden;
     width: calc(16rem + 16vw);
     height: calc(16rem + 16vw);
@@ -171,71 +183,95 @@ const ScWork = styled("section")`
       width: 100%;
       height: 100%;
       border-radius: 50%;
-      transform: translate(-16%, 0);
+      transform: translate(16%, 0);
       background: var(--bubble);
     }
   }
-  .bubbleDiv2 {
-    top: 25%;
-    left: 2%;
-    /* overflow: hidden; */
-    width: calc(6rem + 6vw);
-    height: calc(6rem + 6vw);
+
+  .textBubble {
+    width: calc(6.4rem + 6.4vw);
+    height: calc(6.4rem + 6.4vw);
     border-radius: 50%;
     background: #d9d9d9;
     pointer-events: none;
-    /* transition: 0.8s cubic-bezier(0.18, 0.79, 0.49, 1); */
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: 1s cubic-bezier(0.18, 0.79, 0.49, 1);
+    .innerBubble {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .bubbleText {
+        color: black;
+        text-transform: uppercase;
+        font-size: calc(0.7rem + 0.2vw);
+        line-height: 140%;
+      }
+    }
+  }
+
+  .bubbleDiv2 {
+    top: 28%;
+    left: 2%;
+  }
+  .bubbleDiv3 {
+    top: 89%;
+    left: calc(16rem + 32%);
+    img {
+      transform: rotate(-225deg);
+    }
   }
 
   @media (max-width: 1224px) {
+    height: 320vh;
+    min-height: 128rem;
     .workTitle {
       right: 8%;
     }
     #card1 {
       right: 8%;
       text-align: right;
-      aside {
-        /* transform: translate(-100%, 60%); */
-      }
     }
 
     #card2 {
-      top: 34%;
+      top: 36%;
       left: 8%;
-      aside {
-        /* transform: translate(100%, -60%); */
-      }
     }
 
     #card3 {
-      top: 52%;
+      top: 56%;
       right: 8%;
       aside {
-        /* border: 2px solid white; */
         text-align: right;
-        /* bottom: 50%; */
-        right: 100%;
+        right: 108%;
         width: 100%;
-        /* right: auto; */
-        /* transform: translate(-100%, 60%); */
       }
     }
 
     #card4 {
-      top: 70%;
+      top: 76%;
       left: 8%;
       aside {
         transform: translate(100%, -100%);
       }
     }
+
+    .bubbleDiv2 {
+      top: 30%;
+    }
+    .bubbleDiv3 {
+      top: 87%;
+      left: calc(10rem + 32%);
+    }
   }
 
   @media (max-width: 768px) {
-    /* height: 400vh; */
-    /* min-height: 180rem; */
     height: 320vh;
     min-height: 168rem;
     .workTitle {
@@ -288,6 +324,10 @@ const ScWork = styled("section")`
       top: 80%;
       left: 50%;
       transform: translate(-50%, 0);
+    }
+
+    .textBubble {
+      display: none;
     }
   }
 

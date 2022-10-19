@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 import styled from 'styled-components'
 
-function ProjectCard({id, title, name1, name2, name3, img, role, role2, date, url, cardHover, setCardHover, setAtHome}) {
+function ProjectCard({id, title, name1, name2, name3, img, role, role2, date, url, setCardHover, setCardHover2, setAtHome}) {
     
     // Parallax Effect
     const [offset, setOffset] = useState(0);
@@ -15,23 +15,52 @@ function ProjectCard({id, title, name1, name2, name3, img, role, role2, date, ur
         return () => window.removeEventListener("scroll", parallaxScroll);
     }, [offset]);
     const parallaxStyleText = {
-        // transform: `translate(0, ${offset * 0.05}px)`,
         transform: `translate(0, ${offset * -0.05}px)`,
     };
     // End Parallax
 
   return (
     <ScProjectCard id={id === 1 ? "card1" : id === 2 ? "card2" : id === 3 ? "card3" : "card4"}>
-        <NavLink to={url} onMouseEnter={() => setCardHover(true)} onMouseLeave={() => setCardHover(false)} onClick={() => setAtHome(false)}>
+        {id === 2 || id == 4 ?
+            <NavLink to={url} 
+            onMouseEnter={
+                () => {
+                    setCardHover(true)
+                    setCardHover2(true)
+                }
+            } 
+            onMouseLeave={() => {
+                setCardHover(false)
+                setCardHover2(false)
+            }} 
+            onClick={() => setAtHome(false)}
+            >
             <figure className="card" style={{background: id === 1 ? "var(--blue)" : id === 2 ? "var(--red)" : id === 3 ? "#121212" : "var(--blue)"}}>
                 <figcaption className='a11y'>{title}</figcaption>
                 <img src={img} alt={title} />
             </figure>
-        </NavLink>
+        </NavLink> : 
+        <NavLink to={url} 
+        onMouseEnter={
+            () => {
+                setCardHover(true)
+            }
+        } 
+        onMouseLeave={() => {
+            setCardHover(false)
+        }} 
+        onClick={() => setAtHome(false)}
+        >
+        <figure className="card" style={{background: id === 1 ? "var(--blue)" : id === 2 ? "var(--red)" : id === 3 ? "#121212" : "var(--blue)"}}>
+            <figcaption className='a11y'>{title}</figcaption>
+            <img src={img} alt={title} />
+        </figure>
+    </NavLink>
+        
+        }
         {<aside className="sideText1" style={parallaxStyleText}>
         <h3 className="a11y">{title}</h3>
-        {/* <h3><span>{name1}</span>{name2 && <span><br />{name2}</span>} {name3 && <span><br />{name3}</span>}</h3> */}
-        <h3><span>{name1}</span><br /><span>{name2}</span><br /><span>{name3}</span></h3>
+        <h3 className={id === 3 || id === 4 ? "singleLine" : null}><span>{name1}</span><br /><span>{name2}</span><br /><span>{name3}</span></h3>
         <p className='role1'>{role}</p>
         <p className='role2'>{role2}</p>
         <p className='cardDate'>{date}</p>
@@ -63,7 +92,6 @@ const ScProjectCard = styled('div')`
     }
     .sideText1 {
         position: absolute;
-        padding: 0 calc(0.4rem + 1.4vw);
         transition: transform 1s cubic-bezier(.18,.79,.49,1);
         > * {
             font-family: "Raleway", sans-serif;
@@ -79,15 +107,15 @@ const ScProjectCard = styled('div')`
                     content: "";
                     position: absolute;
                     top: 0;
-                    /* left: 0; */
                     width: 0%;
-                    /* width: 100%; */
-                    height: 100%;
-                    background: var(--background);
-                    /* background: var(--dark); */
-                    /* transition: 0.6s ease; */
+                    height: 108%;
+                    background: var(--smartBg);
+                    /* background: red; */
                 }
             }
+        }
+        .singleLine {
+            transform: translate(0, 2rem);
         }
         p {
             font-size: calc(0.5rem + 0.4vw);
@@ -134,12 +162,12 @@ const ScProjectCard = styled('div')`
 
     @keyframes highlight {
         0% {
-            left: 0;
+            left: -2px;
             right: auto;
             width: 0%;
         }
         45% {
-            left: 0;
+            left: -2px;
             right: auto;
             width: 100%;
         }

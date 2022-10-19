@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 
-function MouseDiv({cardHover, setCardHover, pageWidth}) {
+function MouseDiv({cardHover}) {
 
     const [posX, setPosX] = useState(window.pageX);
     const [posY, setPosY] = useState(window.pageY);

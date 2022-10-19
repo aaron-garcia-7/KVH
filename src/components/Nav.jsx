@@ -15,10 +15,9 @@ function Nav({darkTheme, setDarkTheme, pageWidth, atHome, setAtHome}) {
             {atHome && <Link className='navItem' to="work" smooth={'easeInOutQuint'} offset={pageWidth > 768 ? 150 : 40}>
               <div>
                 <p className='text workText'>Work</p>
-                {/* <a href="" className='link workLink'>Work</a> */}
               </div>
             </Link>}
-            {!atHome && <NavLink className='navItem' to={(-1)} onClick={() => setAtHome(true)}>
+            {!atHome && <NavLink className='navItem' to="/" onClick={() => setAtHome(true)}>
               <div>
                 <p className='text homeText'>Home</p>
               </div>
@@ -28,11 +27,16 @@ function Nav({darkTheme, setDarkTheme, pageWidth, atHome, setAtHome}) {
               |
               </div>
             </li>
-            <li className='navItem'>
+            {atHome && <Link className='navItem' to="about" smooth={'easeInOutQuint'} offset={pageWidth > 768 ? 150 : 40}>
               <div>
                 <p className='text aboutText'>About</p>
               </div>
-            </li>
+            </Link>}
+            {!atHome && <NavLink className='navItem' to={(-1)} onClick={() => setAtHome(true)}>
+              <div>
+                <p className='text workText'>Work</p>
+              </div>
+            </NavLink>}
             <li>
               <div>
               |

@@ -7,10 +7,9 @@ const GlobalStyles = createGlobalStyle`
         --dark: #222831;
         --blue: #30475E;
         --red: #F05454;
-        /* --topDistance: calc(32rem + 24vw); */ // For Mouse Div
-        --bubble: ${(props) => (props.darkTheme ? "#1B2027" : "#d2d2d2")}
-        --background: ${(props) =>
-          props.darkTheme ? "var(--dark)" : "var(--light)"};            
+        --bubble: ${(props) => (props.darkTheme ? "#1B2027" : "#d2d2d2")};
+        --smartBg: ${(props) =>
+          props.darkTheme ? "var(--dark)" : "var(--light)"};
     }
 
     * {
@@ -51,6 +50,17 @@ const GlobalStyles = createGlobalStyle`
         display: none;
         opacity: 0;
         pointer-events: none;
+    }
+
+    .blueBtn {
+        position: absolute;
+        padding: 1rem 2rem;
+        background: var(--blue);
+        color: var(--light);
+        font-size: calc(0.6rem + 0.6vw);
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.1rem;
     }
 
     @keyframes fade {

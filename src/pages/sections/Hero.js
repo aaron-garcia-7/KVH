@@ -69,7 +69,7 @@ function Hero({ darkTheme, setDarkTheme, pageWidth }) {
         </h3>
         <a
           href="#"
-          className="cta"
+          className="blueBtn cta"
           tabIndex={1}
           onFocus={() => {
             setMenuOpen(false);
@@ -133,16 +133,8 @@ const ScHero = styled("section")`
       animation: fade 2s ease 3.6s forwards;
     }
     .cta {
-      position: absolute;
       bottom: -38%;
       left: 0;
-      padding: 1rem 2rem;
-      background: var(--blue);
-      color: var(--light);
-      font-size: calc(0.6rem + 0.6vw);
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.1rem;
       opacity: 0;
       pointer-events: none;
       animation: trueFade 1s ease forwards 3.4s;

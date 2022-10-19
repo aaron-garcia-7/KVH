@@ -1,4 +1,5 @@
 import React from "react";
+import About from "./sections/About";
 import Hero from "./sections/Hero";
 import Work from "./sections/Work";
 
@@ -11,6 +12,7 @@ function Home({ darkTheme, setDarkTheme, pageWidth, setAtHome }) {
         pageWidth={pageWidth}
       />
       <Work pageWidth={pageWidth} setAtHome={setAtHome} />
+      <About darkTheme={darkTheme} />
     </div>
   );
 }
