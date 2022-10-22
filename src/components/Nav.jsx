@@ -53,11 +53,9 @@ function Nav({darkTheme, setDarkTheme, pageWidth, atHome, setAtHome}) {
 }
 
 const ScNav = styled('nav')`
-    /* border: 2px dashed red; */
     position: absolute;
     top: 3.2rem;
     width: 100vw;
-    /* height: 4rem; */
     height: 3.2rem;
     padding: 0 4vw;
     display: flex;
@@ -66,14 +64,12 @@ const ScNav = styled('nav')`
     z-index: 5;
     overflow: hidden;
     .navLinks {
-      /* border: 2px dashed grey; */
       display: flex;
       opacity: 0;
       pointer-events: none;
       animation: trueFade 1s ease forwards 4s;
       .navItem {
         margin: 0 1vw;
-        /* border: 1px solid black; */
         overflow: hidden;
         div {
           transform: translate(0, 0);
@@ -81,7 +77,6 @@ const ScNav = styled('nav')`
           .text {
             position: relative;
             font-size: calc(0.5rem + 0.6vw);
-            text-decoration: none;
             text-transform: uppercase;
             transition: 0.4s ease;
             cursor: pointer;
@@ -117,7 +112,7 @@ const ScNav = styled('nav')`
             transform: translate(0, -100%);
             .text {
               opacity: 0.6;
-              transition: 0.4s ease 0.4s;
+              transition: 0.4s ease 0.5s;
             }
           }
         }
@@ -149,7 +144,6 @@ const ScNav = styled('nav')`
       .navLinks {
         transform: translate(0, -20%);
         .navItem {
-          /* margin: 0 2vw; */
           div {
             transform: translate(0, 24%);
             .text {
@@ -161,24 +155,6 @@ const ScNav = styled('nav')`
           &:hover {
             div {
               transform: translate(0, -120%);
-            }
-          }
-        }
-      }
-    }
-
-    @media (max-width: 520px) {
-      .navLinks {
-        .navItem {
-          div {
-            .text {
-              &::after {
-              }
-            }
-          }
-          &:hover {
-            div {
-              /* transform: translate(0, -82%); */
             }
           }
         }

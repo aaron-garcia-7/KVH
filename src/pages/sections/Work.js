@@ -63,10 +63,10 @@ function Work({ pageWidth, setAtHome }) {
         />
       ))}
       <MouseDiv cardHover={cardHover} />
-      <div className="bubbleDiv1" style={parallaxStyle}>
-        <div className="bubble1" />
+      <div className="workBubbleDiv" style={parallaxStyle}>
+        <div className="workBubble" />
       </div>
-      <div className="bubbleDiv2 textBubble" style={parallaxStyleBubble}>
+      <div className="textBubble textBubble1" style={parallaxStyleBubble}>
         <img src={arrow} alt="" />
         <div className="innerBubble" style={bubbleStyle}>
           <p className="bubbleText" style={bubbleTextStyle}>
@@ -75,7 +75,7 @@ function Work({ pageWidth, setAtHome }) {
           </p>
         </div>
       </div>
-      <div className="bubbleDiv3 textBubble" style={parallaxStyleBubble}>
+      <div className="textBubble textBubble2" style={parallaxStyleBubble}>
         <img src={arrow} alt="" />
         <div className="innerBubble" style={bubbleStyle}>
           <p className="bubbleText" style={bubbleTextStyle}>
@@ -169,7 +169,7 @@ const ScWork = styled("section")`
     }
   }
 
-  .bubbleDiv1 {
+  .workBubbleDiv {
     top: 4%;
     right: 0;
     overflow: hidden;
@@ -179,7 +179,7 @@ const ScWork = styled("section")`
     transition: 0.8s cubic-bezier(0.18, 0.79, 0.49, 1);
     opacity: 0.4;
     z-index: -1;
-    .bubble1 {
+    .workBubble {
       width: 100%;
       height: 100%;
       border-radius: 50%;
@@ -216,11 +216,11 @@ const ScWork = styled("section")`
     }
   }
 
-  .bubbleDiv2 {
+  .textBubble1 {
     top: 28%;
     left: 2%;
   }
-  .bubbleDiv3 {
+  .textBubble2 {
     top: 89%;
     left: calc(16rem + 32%);
     img {
@@ -262,10 +262,10 @@ const ScWork = styled("section")`
       }
     }
 
-    .bubbleDiv2 {
+    .textBubble1 {
       top: 30%;
     }
-    .bubbleDiv3 {
+    .textBubble2 {
       top: 87%;
       left: calc(10rem + 32%);
     }

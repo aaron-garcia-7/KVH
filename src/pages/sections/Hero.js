@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-scroll";
 import styled from "styled-components";
 import Arrow from "../../components/Arrow";
 import Arrow2 from "../../components/Arrow2";
@@ -67,8 +68,10 @@ function Hero({ darkTheme, setDarkTheme, pageWidth }) {
           <Arrow darkTheme={darkTheme} />
           <Arrow2 darkTheme={darkTheme} />
         </h3>
-        <a
-          href="#"
+        <Link
+          to="contact"
+          smooth={"easeInOutQuint"}
+          offset={pageWidth > 768 ? 80 : 40}
           className="blueBtn cta"
           tabIndex={1}
           onFocus={() => {
@@ -76,7 +79,7 @@ function Hero({ darkTheme, setDarkTheme, pageWidth }) {
           }}
         >
           Contact
-        </a>
+        </Link>
       </header>
       <div className="scrollBubble" style={bubbleStyle}>
         <p style={scrollTextStyle}>Scroll</p>
@@ -137,6 +140,7 @@ const ScHero = styled("section")`
       left: 0;
       opacity: 0;
       pointer-events: none;
+      cursor: pointer;
       animation: trueFade 1s ease forwards 3.4s;
     }
   }
@@ -216,7 +220,7 @@ const ScHero = styled("section")`
   }
 
   // Max Height
-  @media (max-height: 580px) {
+  @media (max-height: 640px) {
     .title {
       left: calc(8% + 8vw);
       h1 {
@@ -225,6 +229,9 @@ const ScHero = styled("section")`
       h3 {
         width: 60%;
       }
+    }
+    .scrollBubble {
+      left: 56%;
     }
   }
 `;

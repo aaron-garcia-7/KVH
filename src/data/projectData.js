@@ -38,8 +38,8 @@ const projectData = [
     url: "/iconic-creative",
   },
   {
-    title: "What's Next?",
-    name1: "What's Next?",
+    title: "What’s Next?",
+    name1: "What’s Next?",
     name2: null,
     name3: null,
     img: project4,

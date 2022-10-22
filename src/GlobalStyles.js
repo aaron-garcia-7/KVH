@@ -10,6 +10,8 @@ const GlobalStyles = createGlobalStyle`
         --bubble: ${(props) => (props.darkTheme ? "#1B2027" : "#d2d2d2")};
         --smartBg: ${(props) =>
           props.darkTheme ? "var(--dark)" : "var(--light)"};
+        --smartBorder: ${(props) =>
+          props.darkTheme ? "2px solid var(--light)" : "2px solid var(--dark)"};
     }
 
     * {

@@ -62,7 +62,7 @@ const ScName = styled('div')`
         transform: scale(0.74);
     }
 
-    @media (max-height: 580px) {
+    @media (max-height: 640px) {
         top: -0.8rem;
         left: -3.8rem;
         transform: scale(0.74);

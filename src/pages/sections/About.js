@@ -12,7 +12,6 @@ function About({ darkTheme }) {
   const [cardSpeed, setCardSpeed] = useState(6000);
 
   useEffect(() => {
-    // console.log(cardNum);
     const cardCycle = setTimeout(() => {
       setCardNum((prev) => prev + 1);
       if (cardNum === 2) {
@@ -21,7 +20,7 @@ function About({ darkTheme }) {
     }, cardSpeed);
 
     return () => clearTimeout(cardCycle);
-  }, [cardNum]);
+  }, [cardNum, cardSpeed]);
 
   // Parallax Effect
   const [offset, setOffset] = useState(0);
@@ -56,7 +55,7 @@ function About({ darkTheme }) {
           alt="Aaron Garcia grinning in a white sweater"
           className="portrait"
         />
-        <a href="" className="blueBtn resumeBtn">
+        <a href="#" className="blueBtn resumeBtn">
           Resume
         </a>
       </div>
@@ -86,8 +85,8 @@ function About({ darkTheme }) {
 }
 
 const ScAbout = styled("section")`
-  height: 120vh;
-  min-height: 48rem;
+  height: 160vh;
+  min-height: 96rem;
   > * {
     position: absolute;
   }
@@ -110,7 +109,7 @@ const ScAbout = styled("section")`
   }
   .bio {
     width: calc(24rem + 12vw);
-    top: 36%;
+    top: 32%;
     left: 14%;
     .bioText {
       width: 120%;
@@ -130,7 +129,7 @@ const ScAbout = styled("section")`
     }
   }
   .skills {
-    top: 56%;
+    top: 52%;
     left: 52%;
     width: calc(16rem + 16vw);
     height: calc(18rem + 18vw);
@@ -243,6 +242,9 @@ const ScAbout = styled("section")`
 
   @media (max-width: 520px) {
     min-height: 86rem;
+    .aboutTitle {
+      left: 12%;
+    }
     .bio {
       left: 50%;
       transform: translate(-50%, 0);
@@ -267,12 +269,21 @@ const ScAbout = styled("section")`
   }
 
   @media (max-width: 480px) {
+    height: 168vh;
+    min-height: 68rem;
+    .aboutTitle {
+      top: 8%;
+    }
     .bio {
+      top: 18%;
       width: calc(16rem + 16vw);
+      .bioText {
+        width: 92%;
+      }
     }
     .skills {
       width: calc(16rem + 16vw);
-      top: 56%;
+      top: 54%;
     }
   }
 `;
