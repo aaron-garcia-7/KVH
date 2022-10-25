@@ -1,23 +1,31 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { Link } from 'react-scroll';
 import ThemeToggle from "./ThemeToggle";
+import resume from '../documents/resume.pdf';
 
+import { motion } from "framer-motion";
+import { pageAnim } from "../animations/pageAnim";
 import styled from 'styled-components'
 
-function Nav({darkTheme, setDarkTheme, pageWidth, atHome, setAtHome}) {
+function Nav({darkTheme, setDarkTheme, pageWidth}) {
+  const location = useLocation();
+
+  const linksStyle = {
+    animationDelay: location.pathname === '/' ? '4s' : '0.6s',
+  }
+
   return (
-    <ScNav>        
+    <ScNav variants={pageAnim} initial="initial" animate="animate" exit="exit">        
         <div className="spacer1" />
-        {/* <SocialMediaBtn /> */}
         <ThemeToggle darkTheme={darkTheme} setDarkTheme={setDarkTheme} />
-        <ul className="navLinks">
-            {atHome && <Link className='navItem' to="work" smooth={'easeInOutQuint'} offset={pageWidth > 768 ? 150 : 40}>
+        <ul className="navLinks" style={linksStyle}>
+            {location.pathname === "/" && <Link className='navItem' to="work" smooth={'easeInOutQuint'} offset={pageWidth > 768 ? 150 : 40}>
               <div>
                 <p className='text workText'>Work</p>
               </div>
             </Link>}
-            {!atHome && <NavLink className='navItem' to="/" onClick={() => setAtHome(true)}>
+            {location.pathname !== "/" && <NavLink className='navItem' to="/">
               <div>
                 <p className='text homeText'>Home</p>
               </div>
@@ -27,12 +35,13 @@ function Nav({darkTheme, setDarkTheme, pageWidth, atHome, setAtHome}) {
               |
               </div>
             </li>
-            {atHome && <Link className='navItem' to="about" smooth={'easeInOutQuint'} offset={pageWidth > 768 ? 150 : 40}>
+            {location.pathname === '/' && <Link className='navItem' to="about" smooth={'easeInOutQuint'} offset={pageWidth > 768 ? 150 : 40}>
               <div>
                 <p className='text aboutText'>About</p>
               </div>
             </Link>}
-            {!atHome && <NavLink className='navItem' to={(-1)} onClick={() => setAtHome(true)}>
+            {/* {location.pathname !== '/' && <NavLink className='navItem' to={(-1)}> */}
+            {location.pathname !== '/' && <NavLink className='navItem' to="/">
               <div>
                 <p className='text workText'>Work</p>
               </div>
@@ -42,17 +51,22 @@ function Nav({darkTheme, setDarkTheme, pageWidth, atHome, setAtHome}) {
               |
               </div>
             </li>
-            <li className='navItem'>
+            {location.pathname === '/' && <a href={resume} target="_blank" rel="noreferrer" className='navItem'>
               <div>
                 <p className='text resumeText'>Resume</p>
               </div>
-            </li>
+            </a>}
+            {location.pathname !== '/' && <Link className='navItem' to="contact" smooth={'easeInOutQuint'} offset={pageWidth > 768 ? 150 : 40}>
+              <div>
+                <p className='text contactText'>Contact</p>
+              </div>
+            </Link>}
         </ul>
     </ScNav>
   )
 }
 
-const ScNav = styled('nav')`
+const ScNav = styled(motion.nav)`
     position: absolute;
     top: 3.2rem;
     width: 100vw;
@@ -67,7 +81,7 @@ const ScNav = styled('nav')`
       display: flex;
       opacity: 0;
       pointer-events: none;
-      animation: trueFade 1s ease forwards 4s;
+      animation: trueFade 1s ease forwards;
       .navItem {
         margin: 0 1vw;
         overflow: hidden;
@@ -104,6 +118,11 @@ const ScNav = styled('nav')`
           .homeText {
             &::after {
               content: 'home';
+            }
+          }
+          .contactText {
+            &::after {
+              content: 'contact';
             }
           }
         }

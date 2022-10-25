@@ -77,6 +77,17 @@ const GlobalStyles = createGlobalStyle`
         }
     }
 
+    @media (max-width: 1440px) {
+    }
+    @media (max-width: 1224px) {
+    }
+    @media (max-width: 1024px) {
+    }
+    @media (max-width: 768px) {
+    }
+    @media (max-width: 520px) {
+    }
+
 `;
 
 export default GlobalStyles;

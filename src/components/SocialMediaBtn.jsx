@@ -1,4 +1,5 @@
-import React, {useState} from 'react'
+import React from 'react'
+import { useLocation } from 'react-router-dom';
 import socialText from '../images/graphics/socialText.svg';
 import socialTextWhite from '../images/graphics/socialTextWhite.svg';
 import closeText from '../images/graphics/closeText.svg';
@@ -9,7 +10,11 @@ import github from '../images/graphics/github.svg'
 import styled from 'styled-components'
 
 function SocialMediaBtn({darkTheme, pageWidth, menuOpen, setMenuOpen}) {
-    // const [menuOpen, setMenuOpen] = useState(false);
+    const location = useLocation();
+
+    const fadeStyle = {
+        animationDelay: location.pathname === "/" ? "3.4s" : '0.2s',
+    }
 
     const bubbleStyle = {
         background: menuOpen ? "var(--red)" : "var(--blue)",
@@ -48,7 +53,7 @@ function SocialMediaBtn({darkTheme, pageWidth, menuOpen, setMenuOpen}) {
     }
 
   return (
-    <ScSocialMediaBtn>
+    <ScSocialMediaBtn style={fadeStyle}>
         <div className="button">
             <div className="roundText">
                 <img src={darkTheme ? socialTextWhite : socialText} style={toggleSocialText} alt="social" />
@@ -81,9 +86,6 @@ function SocialMediaBtn({darkTheme, pageWidth, menuOpen, setMenuOpen}) {
 }
 
 const ScSocialMediaBtn = styled('div')`
-    /* border: 2px solid black; */
-    /* top: 2rem; */
-    /* top: 1.6vw; */
     top: calc(1rem + 0.8vw);
     left: 4vw;
     width: 6rem;
@@ -94,7 +96,8 @@ const ScSocialMediaBtn = styled('div')`
     z-index: 6;
     opacity: 0;
     pointer-events: none;
-    animation: trueFade 1s ease forwards 3.4s;
+    /* animation: trueFade 1s ease forwards 3.4s; */
+    animation: trueFade 1s ease forwards;
     .button {
         /* border: 2px dashed red; */
         position: relative;

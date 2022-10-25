@@ -34,7 +34,8 @@ function Contact({ darkTheme }) {
         <h2>Get In Touch</h2>
         <img src={!darkTheme ? arrow : arrow2} alt="" />
       </header>
-      <form method="post" action="" autoComplete="off">
+      <form name="contact" method="post" action="/contact" autoComplete="off">
+        <input type="hidden" name="form-name" value="contact" />
         <div className="formField">
           <input
             type="text"
@@ -79,7 +80,8 @@ function Contact({ darkTheme }) {
           <div className="planeDiv">
             <FontAwesomeIcon icon={faPaperPlane} className="faIcon" />
           </div>
-          <button>Send</button>
+          {/* <button>Send</button> */}
+          <button type="submit">Send</button>
         </div>
       </form>
       <aside className="altLinks">
@@ -376,7 +378,7 @@ const ScContact = styled("section")`
     bottom: 4%;
     left: 12%;
     h2 {
-      font-size: calc(1.2rem + 1.2vw);
+      font-size: calc(0.8rem + 2vw);
       font-weight: 400;
       text-transform: uppercase;
     }
@@ -390,7 +392,7 @@ const ScContact = styled("section")`
     pointer-events: none;
     transition: 0.8s cubic-bezier(0.18, 0.79, 0.49, 1);
     opacity: 0.4;
-    z-index: -1;
+    z-index: -2;
     .contactBubble {
       width: 100%;
       height: 100%;
@@ -505,9 +507,20 @@ const ScContact = styled("section")`
         top: 220%;
       }
     }
+    .altLinks {
+      .linkBlock {
+        .contactLink {
+          div {
+            .text {
+              font-weight: 400;
+            }
+          }
+        }
+      }
+    }
     footer {
       bottom: 6%;
-      left: 4% !important;
+      left: 2% !important;
       transform: scale(0.8);
     }
   }

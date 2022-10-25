@@ -4,9 +4,27 @@ import Contact from "./sections/Contact";
 import Hero from "./sections/Hero";
 import Work from "./sections/Work";
 
-function Home({ darkTheme, setDarkTheme, pageWidth, setAtHome }) {
+import { motion } from "framer-motion";
+import { pageAnim } from "../animations/pageAnim";
+import Nav from "../components/Nav";
+import ScrollToTop from "../router/ScrollToTop";
+
+function Home({ darkTheme, setDarkTheme, pageWidth, atHome, setAtHome }) {
   return (
-    <div>
+    <motion.div
+      variants={pageAnim}
+      initial="initial"
+      animate="animate"
+      exit="exit"
+    >
+      <ScrollToTop />
+      {/* <Nav
+        darkTheme={darkTheme}
+        setDarkTheme={setDarkTheme}
+        pageWidth={pageWidth}
+        atHome={atHome}
+        setAtHome={setAtHome}
+      /> */}
       <Hero
         darkTheme={darkTheme}
         setDarkTheme={setDarkTheme}
@@ -15,7 +33,7 @@ function Home({ darkTheme, setDarkTheme, pageWidth, setAtHome }) {
       <Work pageWidth={pageWidth} setAtHome={setAtHome} />
       <About darkTheme={darkTheme} />
       <Contact darkTheme={darkTheme} />
-    </div>
+    </motion.div>
   );
 }
 

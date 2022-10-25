@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import skillsData from "../../data/skilllsData";
+import resume from "../../documents/resume.pdf";
 
 import portrait from "../../images/photos/portrait.png";
 import arrow from "../../images/graphics/arrow.svg";
@@ -55,7 +56,12 @@ function About({ darkTheme }) {
           alt="Aaron Garcia grinning in a white sweater"
           className="portrait"
         />
-        <a href="#" className="blueBtn resumeBtn">
+        <a
+          href={resume}
+          target="_blank"
+          rel="noreferrer"
+          className="blueBtn resumeBtn"
+        >
           Resume
         </a>
       </div>
