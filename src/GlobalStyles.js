@@ -63,6 +63,12 @@ const GlobalStyles = createGlobalStyle`
         font-weight: 500;
         text-transform: uppercase;
         letter-spacing: 0.1rem;
+        /* box-shadow: -6px 6px 0px var(--red); */
+        box-shadow: -6px 6px 0px #F0545450;
+        transition: 0.4s ease;
+        &:hover {
+            box-shadow: 0px 0px 0px #F0545450;
+        }
     }
 
     @keyframes fade {
@@ -74,6 +80,11 @@ const GlobalStyles = createGlobalStyle`
         to {
             opacity: 1;
             pointer-events: all;
+        }
+    }
+    @keyframes slideUp {
+        to {
+            transform: translate(0, 0);  
         }
     }
 

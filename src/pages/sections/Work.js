@@ -6,7 +6,7 @@ import arrow from "../../images/graphics/arrow.svg";
 
 import projectData from "../../data/projectData";
 
-function Work({ pageWidth, setAtHome }) {
+function Work({ pageWidth }) {
   const [cardHover, setCardHover] = useState(false);
   const [cardHover2, setCardHover2] = useState(false);
 
@@ -59,7 +59,6 @@ function Work({ pageWidth, setAtHome }) {
           url={obj.url}
           setCardHover={setCardHover}
           setCardHover2={setCardHover2}
-          setAtHome={setAtHome}
         />
       ))}
       <MouseDiv cardHover={cardHover} />

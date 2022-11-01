@@ -7,9 +7,8 @@ import Name from "../../components/Name";
 import Name2 from "../../components/Name2";
 import SocialMediaBtn from "../../components/SocialMediaBtn";
 
-function Hero({ darkTheme, setDarkTheme, pageWidth }) {
+function Hero({ darkTheme, pageWidth, menuOpen, setMenuOpen }) {
   const [fromTop, setFromTop] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
 
   const checkFromTop = () => {
     window.scrollY > 200 ? setFromTop(true) : setFromTop(false);
@@ -19,7 +18,7 @@ function Hero({ darkTheme, setDarkTheme, pageWidth }) {
     window.addEventListener("scroll", checkFromTop);
 
     return () => window.removeEventListener("scroll", checkFromTop);
-  }, [fromTop]);
+  }, []);
 
   const roleStyle = {
     color: !darkTheme ? "#22283100" : "#dddddd00",
@@ -69,6 +68,7 @@ function Hero({ darkTheme, setDarkTheme, pageWidth }) {
           <Arrow2 darkTheme={darkTheme} />
         </h3>
         <Link
+          href="#contact"
           to="contact"
           smooth={"easeInOutQuint"}
           offset={pageWidth > 768 ? 80 : 40}
@@ -78,7 +78,7 @@ function Hero({ darkTheme, setDarkTheme, pageWidth }) {
             setMenuOpen(false);
           }}
         >
-          Contact
+          <p>Contact</p>
         </Link>
       </header>
       <div className="scrollBubble" style={bubbleStyle}>
@@ -140,8 +140,31 @@ const ScHero = styled("section")`
       left: 0;
       opacity: 0;
       pointer-events: none;
-      cursor: pointer;
       animation: trueFade 1s ease forwards 3.4s;
+      p {
+        position: relative;
+        transition: 0.3s ease;
+        color: var(--light);
+        &::before {
+          content: "Contact";
+          position: absolute;
+          top: 0;
+          left: 0;
+          color: var(--red);
+          z-index: -1;
+          transition: 0.3s ease;
+        }
+      }
+      &:hover {
+        p {
+          transform: translate(0.1rem, -0.1rem);
+          transition-delay: 0.1s;
+          &::before {
+            transform: translate(-0.1rem, 0.1rem);
+            transition-delay: 0.1s;
+          }
+        }
+      }
     }
   }
 
@@ -190,35 +213,6 @@ const ScHero = styled("section")`
     }
   }
 
-  @media (max-width: 1024px) {
-    .title {
-      left: 8%;
-      transform: scale(0.8) translate(0, -66%);
-    }
-  }
-
-  @media (max-width: 768px) {
-    .title {
-      left: 2%;
-      h1 {
-        font-size: 6rem;
-      }
-      h3 {
-        width: 60%;
-      }
-    }
-  }
-
-  @media (max-width: 520px) {
-    .title {
-      h3 {
-        width: 46%;
-        font-weight: 400;
-        transform: translate(-80%, 10%);
-      }
-    }
-  }
-
   // Max Height
   @media (max-height: 640px) {
     .title {
@@ -232,6 +226,37 @@ const ScHero = styled("section")`
     }
     .scrollBubble {
       left: 56%;
+    }
+  }
+  // Max Height
+
+  @media (max-width: 1024px) {
+    .title {
+      left: 8%;
+      transform: scale(0.8) translate(0, -66%);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .title {
+      left: 6%;
+      h1 {
+        font-size: 6rem;
+      }
+      h3 {
+        width: 60%;
+      }
+    }
+  }
+
+  @media (max-width: 520px) {
+    .title {
+      left: 2%;
+      h3 {
+        width: 46%;
+        font-weight: 400;
+        transform: translate(-80%, 10%);
+      }
     }
   }
 `;

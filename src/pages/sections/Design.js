@@ -1,13 +1,48 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useInView } from "react-intersection-observer";
 import styled from "styled-components";
 
-// import palettes from "../../data/paletteData";
-import { palette2 } from "../../data/paletteData";
+import palettes from "../../data/paletteData";
 
 import arrow from "../../images/graphics/arrow.svg";
 import arrow2 from "../../images/graphics/arrow2.svg";
 
-function Design({ text1, text2, v1, v2, v3, darkTheme }) {
+function Design({
+  id,
+  title,
+  text1,
+  text2,
+  wireframe,
+  setShowModule,
+  setModuleImg,
+  setModuleName,
+  darkTheme,
+}) {
+  const [ref, inView] = useInView({
+    threshold: 0.7,
+    triggerOnce: false,
+  });
+  // Parallax Effect
+  const [offset, setOffset] = useState(0);
+  const parallaxScroll = () => {
+    setOffset(window.scrollY);
+  };
+  useEffect(() => {
+    window.addEventListener("scroll", parallaxScroll);
+    return () => window.removeEventListener("scroll", parallaxScroll);
+  }, [offset]);
+
+  const parallaxStyleTap = {
+    transform: `translate(0, ${offset * -0.1}px)`,
+  };
+  // End Parallax
+  const tapTextStyle = {
+    transform: inView ? `scale(1)` : `scale(0)`,
+    transition: inView
+      ? "1.2s cubic-bezier(0.1, 0.75, 0.35, 1.22)"
+      : "1.2s cubic-bezier(.39,-0.27,.56,.55)",
+  };
+
   return (
     <ScDesign>
       <div className="designText">
@@ -17,39 +52,50 @@ function Design({ text1, text2, v1, v2, v3, darkTheme }) {
           <p>{text2}</p>
         </article>
         <div className="palette">
-          {palette2.map((obj) => (
-            <div className="color" style={{ background: obj.color }} />
+          {palettes[id - 1].map((item, index) => (
+            <div key={index} className="color" style={{ background: item }} />
           ))}
         </div>
       </div>
-      <div className="versionContainer">
+      <div className="wireframe">
         <aside>
-          <p>
-            Hover over <br /> each image
-          </p>
+          <p>Wireframe</p>
           <img src={!darkTheme ? arrow : arrow2} alt="" />
         </aside>
-        <div className="gallery">
-          <img src={v1} alt="version 1" />
-          <img src={v2} alt="version 2" />
-          <img src={v3} alt="version 3" />
-        </div>
+        <figure
+          ref={ref}
+          onClick={() => {
+            setShowModule(true);
+            setModuleImg(wireframe);
+            setModuleName("concept");
+          }}
+        >
+          <img src={wireframe} alt={`Wireframe for ${title}`} />
+          <figcaption
+            style={parallaxStyleTap}
+            onClick={() => {
+              setShowModule(true);
+              setModuleImg(wireframe);
+              setModuleName("concept");
+            }}
+          >
+            <p style={tapTextStyle}>Expand</p>
+          </figcaption>
+        </figure>
       </div>
     </ScDesign>
   );
 }
 
 const ScDesign = styled("section")`
-  /* border: 3px dashed violet; */
-  height: 120vh;
-  min-height: 48rem;
+  height: calc(18rem + 36vw);
 
   > * {
     position: absolute;
   }
 
   .designText {
-    top: 14%;
+    top: 10%;
     left: 8%;
     width: calc(16rem + 16vw);
     &::before {
@@ -72,7 +118,7 @@ const ScDesign = styled("section")`
         margin-bottom: calc(1rem + 2vw);
       }
       p {
-        font-size: calc(0.6rem + 0.6vw);
+        font-size: calc(0.6rem + 0.8vw);
         font-weight: 300;
         text-align: left;
         margin-bottom: calc(1rem + 1vw);
@@ -80,31 +126,24 @@ const ScDesign = styled("section")`
     }
     .palette {
       position: relative;
-      /* border: 1px dashed grey; */
-      /* width: 100%; */
-      /* height: 12rem; */
-      /* display: flex; */
       .color {
         position: absolute;
-        /* border: 1px solid wheat; */
-        width: calc(4rem + 4vw);
-        height: calc(4rem + 4vw);
-        /* width: 8vw; */
-        /* height: 8vw; */
+        width: calc(2.4rem + 2.4vw);
+        height: calc(2.4rem + 2.4vw);
         border-radius: 50%;
         cursor: pointer;
         transition: 0.3s ease;
         &:nth-of-type(2) {
-          left: 16%;
+          left: 10%;
         }
         &:nth-of-type(3) {
-          left: 32%;
+          left: 20%;
         }
         &:nth-of-type(4) {
-          left: 48%;
+          left: 30%;
         }
         &:nth-of-type(5) {
-          left: 64%;
+          left: 40%;
         }
         &:hover {
           transform: translate(0, 12%);
@@ -113,14 +152,15 @@ const ScDesign = styled("section")`
     }
   }
 
-  .versionContainer {
-    /* border: 2px dashed white; */
+  .wireframe {
     top: 28%;
-    right: 12%;
-    width: 40vw;
+    right: 8%;
+    width: calc(2rem + 36vw);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-bottom: 2rem;
     aside {
-      /* border: 2px solid black; */
-      /* text-align: right; */
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -137,67 +177,196 @@ const ScDesign = styled("section")`
         transform: rotate(90deg);
       }
     }
-    .gallery {
-      /* border: 2px solid black; */
-      position: relative;
+    figure {
+      height: 24.4vw;
       width: 100%;
-      height: calc(16rem + 8vw);
+      overflow: hidden;
+      cursor: pointer;
       img {
+        width: 100%;
+      }
+      figcaption {
         position: absolute;
-        top: 50%;
-        left: 50%;
-        width: calc(6rem + 24vw);
-        transition: 0.4s ease;
-        &:nth-of-type(1) {
-          /* border: 2px solid red; */
-          transform: translate(-70%, -70%);
-        }
-        &:nth-of-type(2) {
-          /* border: 2px solid red; */
-          transform: translate(-50%, -50%);
-        }
-        &:nth-of-type(3) {
-          /* border: 2px solid red; */
-          transform: translate(-30%, -30%);
-        }
-
-        &:hover {
-          /* width: 100%; */
-          & ~ img {
-            opacity: 0;
-          }
-          &:nth-of-type(1) {
-            /* border: 4px dashed red; */
-            transform: translate(-70%, -70%) scale(1.2);
-          }
-          &:nth-of-type(2) {
-            /* border: 4px dashed red; */
-            transform: translate(-50%, -50%) scale(1.2);
-          }
-          &:nth-of-type(3) {
-            /* border: 4px dashed red; */
-            transform: translate(-30%, -30%) scale(1.2);
-          }
+        bottom: 11vw;
+        left: -3.2vw;
+        width: calc(3.6rem + 3.6vw);
+        height: calc(3.6rem + 3.6vw);
+        transition: 0.8s cubic-bezier(0.18, 0.79, 0.49, 1);
+        z-index: 5;
+        p {
+          background: var(--red);
+          color: var(--light);
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: calc(0.4rem + 0.6vw);
+          font-weight: 400;
+          text-transform: uppercase;
+          letter-spacing: 0.08rem;
         }
       }
     }
   }
 
   @media (max-width: 1440px) {
-    .versionContainer {
-      right: 8%;
-      .gallery {
-        img {
-          /* width: calc(16rem + 16vw); */
-          /* transition: 0.4s ease; */
-          &:nth-of-type(1) {
-            transform: translate(-70%, -70%);
-          }
+    .wireframe {
+      right: 6%;
+    }
+  }
+
+  // MAX HEIGHT
+  // Placed above width of 768px for specificity reasons
+
+  @media (max-height: 640px) {
+    height: calc(12rem + 34vw);
+    .designText {
+      transform: scale(0.9);
+      top: 12%;
+    }
+    .wireframe {
+      transform: scale(0.9);
+      top: 26%;
+    }
+  }
+
+  // MAX HEIGHT
+  // Placed above width of 768px for specificity reasons
+
+  @media (max-width: 1224px) {
+    .wireframe {
+      transform: scale(0.9);
+    }
+    .designText {
+      transform: scale(0.9);
+    }
+  }
+
+  @media (max-width: 1024px) {
+    height: calc(36rem + 56vw);
+    .designText {
+      width: 56vw;
+      &::before {
+        transform: scale(0.8);
+      }
+      article {
+        margin-bottom: 6vw;
+        h2 {
+          transform: translate(-11%, 0) scale(0.8);
+          letter-spacing: 0;
+          margin-bottom: calc(1rem + 1vw);
+        }
+        p {
+          font-size: calc(0.7rem + 0.7vw);
+        }
+      }
+      .palette {
+        .color {
           &:nth-of-type(2) {
-            transform: translate(-50%, -50%);
+            left: 8%;
           }
           &:nth-of-type(3) {
-            transform: translate(-30%, -30%);
+            left: 16%;
+          }
+          &:nth-of-type(4) {
+            left: 24%;
+          }
+          &:nth-of-type(5) {
+            left: 32%;
+          }
+        }
+      }
+    }
+    .wireframe {
+      top: 46%;
+      right: 50%;
+      transform: translate(50%, 0);
+      width: 64vw;
+      figure {
+        height: 41.4vw;
+        figcaption {
+          bottom: -4vw;
+          left: -7vw;
+          width: calc(4.6rem + 4.6vw);
+          height: calc(4.6rem + 4.6vw);
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .designText {
+      top: 12%;
+      left: 50%;
+      transform: translate(-50%, 0);
+      width: calc(4rem + 68vw);
+      &::before {
+        transform: scale(1);
+      }
+      article {
+        margin-bottom: 8vw;
+        h2 {
+          transform: translate(0, 0) scale(1);
+        }
+      }
+    }
+    .wireframe {
+      top: 50%;
+      width: calc(4rem + 68vw);
+      figure {
+        height: 48vw;
+        figcaption {
+          bottom: -16vw;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 520px) {
+    height: calc(36rem + 64vw);
+    .designText {
+      top: 10%;
+      width: 78vw;
+      article {
+        margin-bottom: 8vw;
+        h2 {
+          transform: translate(0, 0) scale(1);
+        }
+        p {
+          font-size: calc(0.8rem + 0.8vw);
+        }
+      }
+    }
+    .wireframe {
+      top: 56%;
+      width: 76vw;
+      figure {
+        figcaption {
+          bottom: -56vw;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    height: calc(42rem + 64vw);
+    .designText {
+      &::before {
+        left: 0;
+      }
+    }
+    .wireframe {
+      top: 60%;
+      figure {
+        figcaption {
+          bottom: -72vw;
+          left: -4vw;
+          width: calc(4rem + 4vw);
+          height: calc(4rem + 4vw);
+          p {
+            font-size: calc(0.6rem + 0.6vw);
           }
         }
       }

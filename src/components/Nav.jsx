@@ -8,24 +8,24 @@ import { motion } from "framer-motion";
 import { pageAnim } from "../animations/pageAnim";
 import styled from 'styled-components'
 
-function Nav({darkTheme, setDarkTheme, pageWidth}) {
+function Nav({darkTheme, setDarkTheme, pageWidth, setMenuOpen}) {
   const location = useLocation();
 
   const linksStyle = {
-    animationDelay: location.pathname === '/' ? '4s' : '0.6s',
+    animationDelay: location.pathname === '/' ? '4s' : '2s',
   }
 
   return (
     <ScNav variants={pageAnim} initial="initial" animate="animate" exit="exit">        
         <div className="spacer1" />
-        <ThemeToggle darkTheme={darkTheme} setDarkTheme={setDarkTheme} />
+        <ThemeToggle darkTheme={darkTheme} setDarkTheme={setDarkTheme} setMenuOpen={setMenuOpen}/>
         <ul className="navLinks" style={linksStyle}>
-            {location.pathname === "/" && <Link className='navItem' to="work" smooth={'easeInOutQuint'} offset={pageWidth > 768 ? 150 : 40}>
+            {location.pathname === "/" && <Link className='navItem' href="#work" to="work" smooth={'easeInOutQuint'} offset={pageWidth > 768 ? 150 : 40} tabIndex={6}>
               <div>
                 <p className='text workText'>Work</p>
               </div>
             </Link>}
-            {location.pathname !== "/" && <NavLink className='navItem' to="/">
+            {location.pathname !== "/" && <NavLink className='navItem' to="/" tabIndex={6}>
               <div>
                 <p className='text homeText'>Home</p>
               </div>
@@ -35,32 +35,26 @@ function Nav({darkTheme, setDarkTheme, pageWidth}) {
               |
               </div>
             </li>
-            {location.pathname === '/' && <Link className='navItem' to="about" smooth={'easeInOutQuint'} offset={pageWidth > 768 ? 150 : 40}>
+            {location.pathname === '/' && <Link className='navItem' href="#about" to="about" smooth={'easeInOutQuint'} offset={pageWidth > 768 ? 150 : 40} tabIndex={7}>
               <div>
                 <p className='text aboutText'>About</p>
               </div>
             </Link>}
-            {/* {location.pathname !== '/' && <NavLink className='navItem' to={(-1)}> */}
-            {location.pathname !== '/' && <NavLink className='navItem' to="/">
+            {location.pathname !== '/' && <Link className='navItem' href="#contact" to="contact" smooth={'easeInOutQuint'} offset={pageWidth > 768 ? 150 : 40} tabIndex={7}>
               <div>
-                <p className='text workText'>Work</p>
+                <p className='text contactText'>Contact</p>
               </div>
-            </NavLink>}
+            </Link>}
             <li>
               <div>
               |
               </div>
             </li>
-            {location.pathname === '/' && <a href={resume} target="_blank" rel="noreferrer" className='navItem'>
+            <a href={resume} target="_blank" rel="noreferrer" className='navItem' tabIndex={8}>
               <div>
                 <p className='text resumeText'>Resume</p>
               </div>
-            </a>}
-            {location.pathname !== '/' && <Link className='navItem' to="contact" smooth={'easeInOutQuint'} offset={pageWidth > 768 ? 150 : 40}>
-              <div>
-                <p className='text contactText'>Contact</p>
-              </div>
-            </Link>}
+            </a>
         </ul>
     </ScNav>
   )
@@ -126,7 +120,8 @@ const ScNav = styled(motion.nav)`
             }
           }
         }
-        &:hover {
+        &:hover,
+        &:focus {
           div {
             transform: translate(0, -100%);
             .text {
@@ -161,7 +156,7 @@ const ScNav = styled(motion.nav)`
 
     @media (max-width: 768px) {
       .navLinks {
-        transform: translate(0, -20%);
+        transform: translate(0, -10%);
         .navItem {
           div {
             transform: translate(0, 24%);
@@ -177,6 +172,12 @@ const ScNav = styled(motion.nav)`
             }
           }
         }
+      }
+    }
+
+    @media (max-width: 520px) {
+      .navLinks {
+        transform: translate(0, 0);
       }
     }
 `

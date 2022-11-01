@@ -62,7 +62,7 @@ function About({ darkTheme }) {
           rel="noreferrer"
           className="blueBtn resumeBtn"
         >
-          Resume
+          <p>Resume</p>
         </a>
       </div>
       <div className="skills">
@@ -132,6 +132,30 @@ const ScAbout = styled("section")`
       bottom: -14%;
       left: 12vw;
       transform: scale(1.1);
+      p {
+        position: relative;
+        transition: 0.3s ease;
+        color: var(--light);
+        &::before {
+          content: "Resume";
+          position: absolute;
+          top: 0;
+          left: 0;
+          color: var(--red);
+          z-index: -1;
+          transition: 0.3s ease;
+        }
+      }
+      &:hover {
+        p {
+          transform: translate(0.1rem, -0.1rem);
+          transition-delay: 0.1s;
+          &::before {
+            transform: translate(-0.1rem, 0.1rem);
+            transition-delay: 0.1s;
+          }
+        }
+      }
     }
   }
   .skills {

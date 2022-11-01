@@ -6,7 +6,7 @@ import styled from "styled-components";
 import arrow from "../../images/graphics/arrow.svg";
 import arrow2 from "../../images/graphics/arrow2.svg";
 
-function Contact({ darkTheme }) {
+function Contact({ darkTheme, pageWidth, inHome }) {
   // Parallax Effect
   const [offset, setOffset] = useState(0);
   const parallaxScroll = () => {
@@ -19,7 +19,7 @@ function Contact({ darkTheme }) {
   const parallaxStyle = {
     transform: `translate(0, ${offset * 0.08}px)`,
   };
-  const parallaxStyleSubmit = {
+  const parallaxStyleSend = {
     transform: `translate(0, ${offset * -0.1}px)`,
   };
   // End Parallax
@@ -30,11 +30,13 @@ function Contact({ darkTheme }) {
 
   return (
     <ScContact id="contact">
-      <header className="contactTitle">
+      <header
+        className={inHome ? "contactTitle" : "contactTitle contactTitleAlt"}
+      >
         <h2>Get In Touch</h2>
         <img src={!darkTheme ? arrow : arrow2} alt="" />
       </header>
-      <form name="contact" method="post" action="/contact" autoComplete="off">
+      <form name="contact" method="post" action="/contact">
         <input type="hidden" name="form-name" value="contact" />
         <div className="formField">
           <input
@@ -42,7 +44,6 @@ function Contact({ darkTheme }) {
             name="name"
             placeholder=" "
             required
-            autoComplete="off"
             className="input"
           />
           <label htmlFor="name" className="label">
@@ -55,7 +56,6 @@ function Contact({ darkTheme }) {
             name="email"
             placeholder=" "
             required
-            autoComplete="off"
             className="input"
           />
           <label htmlFor="email" className="label">
@@ -76,11 +76,13 @@ function Contact({ darkTheme }) {
             Message
           </label>
         </div>
-        <div className="submitDiv" style={parallaxStyleSubmit}>
+        <div
+          className={inHome ? "submitDiv" : "submitDiv altSubmit"}
+          style={parallaxStyleSend}
+        >
           <div className="planeDiv">
             <FontAwesomeIcon icon={faPaperPlane} className="faIcon" />
           </div>
-          {/* <button>Send</button> */}
           <button type="submit">Send</button>
         </div>
       </form>
@@ -174,6 +176,11 @@ const ScContact = styled("section")`
       animation: fade 2s ease 0.2s forwards;
     }
   }
+  .contactTitleAlt {
+    &::before {
+      content: "05";
+    }
+  }
   form {
     width: calc(16rem + 16vw);
     top: 32%;
@@ -260,7 +267,8 @@ const ScContact = styled("section")`
         text-transform: uppercase;
         letter-spacing: 0.08rem;
         transition: transform 0.6s cubic-bezier(0.53, -0.48, 0.48, 1.4);
-        &:hover {
+        &:hover,
+        &:focus {
           transform: scale(0.8);
         }
       }
@@ -275,7 +283,8 @@ const ScContact = styled("section")`
           transition: 0.3s ease;
         }
       }
-      &:hover {
+      &:hover,
+      &:focus {
         button {
           transform: scale(0.8);
         }
@@ -286,6 +295,9 @@ const ScContact = styled("section")`
           }
         }
       }
+    }
+    .altSubmit {
+      top: 170%;
     }
   }
   .altLinks {
@@ -425,14 +437,52 @@ const ScContact = styled("section")`
   @media (max-width: 1440px) {
     form {
       .submitDiv {
-        top: 190%;
+        top: 196%;
         right: -16%;
+      }
+      .altSubmit {
+        top: 162%;
       }
     }
     .altLinks {
       right: 12%;
     }
   }
+
+  // Max Height
+  @media (max-height: 640px) {
+    .contactTitle {
+      top: 16%;
+      left: 12%;
+      transform: scale(0.9);
+      &::before {
+        top: -1.6vw;
+        left: -2.4vw;
+      }
+    }
+    form {
+      transform: scale(0.9);
+      top: 28%;
+      left: 12%;
+      .submitDiv {
+        top: 186%;
+        right: -16%;
+      }
+      .altSubmit {
+        top: 150%;
+      }
+    }
+    .altLinks {
+      top: 22%;
+      right: 12%;
+      transform: scale(0.9);
+    }
+    footer {
+      bottom: 6%;
+      left: 13%;
+    }
+  }
+  // Max Height
 
   @media (max-width: 1024px) {
     height: 104vh;
@@ -450,6 +500,13 @@ const ScContact = styled("section")`
       transform: scale(0.9);
       top: 24%;
       left: 8% !important;
+      .submitDiv {
+        top: 186%;
+        right: -16%;
+      }
+      .altSubmit {
+        top: 182%;
+      }
     }
     .altLinks {
       top: 16%;
@@ -471,6 +528,9 @@ const ScContact = styled("section")`
         top: -2vw;
         left: -3vw;
       }
+      h2 {
+        margin-bottom: 2vw;
+      }
     }
     form {
       width: 68%;
@@ -483,6 +543,9 @@ const ScContact = styled("section")`
       .submitDiv {
         top: 216%;
         right: -10%;
+      }
+      .altSubmit {
+        top: 194%;
       }
     }
     .altLinks {
@@ -500,11 +563,18 @@ const ScContact = styled("section")`
   @media (max-width: 520px) {
     .contactTitle {
       left: 12%;
+      &::before {
+        top: -4vw;
+        left: -4vw;
+      }
     }
     form {
       width: 80%;
       .submitDiv {
         top: 220%;
+      }
+      .altSubmit {
+        top: 210%;
       }
     }
     .altLinks {
@@ -525,37 +595,12 @@ const ScContact = styled("section")`
     }
   }
 
-  //
-  // MAX HEIGHT
-  //
-
-  @media (max-height: 640px) {
+  @media (max-width: 480px) {
     .contactTitle {
-      top: 16%;
-      left: 12%;
-      transform: scale(0.9);
       &::before {
-        top: -1.6vw;
-        left: -2.4vw;
+        top: -6vw;
+        left: 0;
       }
-    }
-    form {
-      transform: scale(0.9);
-      top: 28%;
-      left: 12%;
-      .submitDiv {
-        top: 186%;
-        right: -16%;
-      }
-    }
-    .altLinks {
-      top: 22%;
-      right: 12%;
-      transform: scale(0.9);
-    }
-    footer {
-      bottom: 6%;
-      left: 13%;
     }
   }
 `;

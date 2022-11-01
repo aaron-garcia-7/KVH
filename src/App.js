@@ -12,9 +12,9 @@ import HoneysuckleStudios from "./pages/HoneysuckleStudios";
 import Nav from "./components/Nav";
 
 function App() {
-  const [atHome, setAtHome] = useState(true);
   const [darkTheme, setDarkTheme] = useState(false);
   const [pageWidth, setPageWidth] = useState(window.innerWidth);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const checkWidth = () => {
     setPageWidth(window.innerWidth);
@@ -41,6 +41,8 @@ function App() {
           darkTheme={darkTheme}
           setDarkTheme={setDarkTheme}
           pageWidth={pageWidth}
+          menuOpen={menuOpen}
+          setMenuOpen={setMenuOpen}
         />
         <Routes location={location} key={location.pathname}>
           <Route
@@ -50,6 +52,8 @@ function App() {
                 darkTheme={darkTheme}
                 setDarkTheme={setDarkTheme}
                 pageWidth={pageWidth}
+                menuOpen={menuOpen}
+                setMenuOpen={setMenuOpen}
               />
             }
           />
@@ -60,6 +64,8 @@ function App() {
                 darkTheme={darkTheme}
                 setDarkTheme={setDarkTheme}
                 pageWidth={pageWidth}
+                menuOpen={menuOpen}
+                setMenuOpen={setMenuOpen}
               />
             }
           />
@@ -70,6 +76,8 @@ function App() {
                 darkTheme={darkTheme}
                 setDarkTheme={setDarkTheme}
                 pageWidth={pageWidth}
+                menuOpen={menuOpen}
+                setMenuOpen={setMenuOpen}
               />
             }
           />

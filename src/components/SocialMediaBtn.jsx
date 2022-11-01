@@ -11,9 +11,9 @@ import styled from 'styled-components'
 
 function SocialMediaBtn({darkTheme, pageWidth, menuOpen, setMenuOpen}) {
     const location = useLocation();
-
+    
     const fadeStyle = {
-        animationDelay: location.pathname === "/" ? "3.4s" : '0.2s',
+        animationDelay: location.pathname === "/" ? "3.4s" : '1.6s',
     }
 
     const bubbleStyle = {
@@ -42,14 +42,16 @@ function SocialMediaBtn({darkTheme, pageWidth, menuOpen, setMenuOpen}) {
         transform: menuOpen && pageWidth > 1440 ? "scale(1.1)" 
         : menuOpen && pageWidth <= 1440 && pageWidth > 768 ? "scale(0.9)" 
         : menuOpen && pageWidth <= 768 ? "scale(0.7)" 
-        : "scale(0)",        transition: "transform 0.8s cubic-bezier(.56,-0.57,.59,1.32) 0.3s, opacity 1s ease 0.5s",
+        : "scale(0)",        
+        transition: "transform 0.8s cubic-bezier(.56,-0.57,.59,1.32) 0.3s, opacity 1s ease 0.5s",
     }
     const githubStyle = {
         opacity: menuOpen ? 1 : 0,
         transform: menuOpen && pageWidth > 1440 ? "scale(1.1)" 
         : menuOpen && pageWidth <= 1440 && pageWidth > 768 ? "scale(0.9)" 
         : menuOpen && pageWidth <= 768 ? "scale(0.7)" 
-        : "scale(0)",        transition: "transform 0.8s cubic-bezier(.56,-0.57,.59,1.32) 0.4s, opacity 1s ease 0.6s",
+        : "scale(0)",        
+        transition: "transform 0.8s cubic-bezier(.56,-0.57,.59,1.32) 0.4s, opacity 1s ease 0.6s",
     }
 
   return (
@@ -62,7 +64,7 @@ function SocialMediaBtn({darkTheme, pageWidth, menuOpen, setMenuOpen}) {
             <div className="bubble" style={bubbleStyle} onClick={() => setMenuOpen(prev => !prev)}>
                 <img src={plus} alt="" />
             </div>
-            <div className="tabIndex" tabIndex={2} onFocus={() => setMenuOpen(true)}/>
+            <div className="tabIndex" tabIndex={2} onFocus={() => setMenuOpen(true)} />
         </div>
         <ul>
             <li className='twitterItem' style={twitterStyle}>
@@ -76,7 +78,7 @@ function SocialMediaBtn({darkTheme, pageWidth, menuOpen, setMenuOpen}) {
                 </a>
             </li>
             <li className='githubItem' style={githubStyle}>
-                <a href="https://github.com/aaron-garcia-7" target="_blank" rel="noreferrer" tabIndex={5}>
+                <a href="https://github.com/aaron-garcia-7" target="_blank" rel="noreferrer" tabIndex={5} onFocus={() => setMenuOpen(true)}>
                     <img src={github} alt="" />
                 </a>
             </li>
@@ -191,6 +193,7 @@ const ScSocialMediaBtn = styled('div')`
         }
 
     @media (max-width: 520px) {
+        left: 2vw;
         ul {
             top: 1.8rem;
             left: 1.8rem;

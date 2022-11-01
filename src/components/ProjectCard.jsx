@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 import styled from 'styled-components'
 
-function ProjectCard({id, title, name1, name2, name3, img, role, role2, date, url, setCardHover, setCardHover2, setAtHome}) {
+function ProjectCard({id, title, name1, name2, name3, img, role, role2, date, url, setCardHover, setCardHover2}) {
     
     // Parallax Effect
     const [offset, setOffset] = useState(0);
@@ -21,7 +21,7 @@ function ProjectCard({id, title, name1, name2, name3, img, role, role2, date, ur
 
   return (
     <ScProjectCard id={id === 1 ? "card1" : id === 2 ? "card2" : id === 3 ? "card3" : "card4"}>
-        {id === 2 || id == 4 ?
+        {id === 2 || id === 4 ?
             <NavLink to={url} 
             onMouseEnter={
                 () => {
@@ -33,7 +33,6 @@ function ProjectCard({id, title, name1, name2, name3, img, role, role2, date, ur
                 setCardHover(false)
                 setCardHover2(false)
             }} 
-            onClick={() => setAtHome(false)}
             >
             <figure className="card" style={{background: id === 1 ? "var(--blue)" : id === 2 ? "var(--red)" : id === 3 ? "#121212" : "var(--blue)"}}>
                 <figcaption className='a11y'>{title}</figcaption>
@@ -49,7 +48,6 @@ function ProjectCard({id, title, name1, name2, name3, img, role, role2, date, ur
         onMouseLeave={() => {
             setCardHover(false)
         }} 
-        onClick={() => setAtHome(false)}
         >
         <figure className="card" style={{background: id === 1 ? "var(--blue)" : id === 2 ? "var(--red)" : id === 3 ? "#121212" : "var(--blue)"}}>
             <figcaption className='a11y'>{title}</figcaption>
@@ -136,7 +134,8 @@ const ScProjectCard = styled('div')`
         display: none;
     }
     a {
-        &:hover {
+        &:hover,
+        &:focus {
             & ~ .sideText1 {
                 /* border: 1px dashed grey; */
                 h3 {
