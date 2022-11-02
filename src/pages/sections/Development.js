@@ -81,7 +81,7 @@ function Development({
           >
             github
           </a>
-          . Thanks for stoppinig by!
+          . Thanks for stopping by!
         </p>
       </article>
       <div className="developmentBubbleDiv" style={parallaxStyle}>

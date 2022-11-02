@@ -63,7 +63,6 @@ const GlobalStyles = createGlobalStyle`
         font-weight: 500;
         text-transform: uppercase;
         letter-spacing: 0.1rem;
-        /* box-shadow: -6px 6px 0px var(--red); */
         box-shadow: -6px 6px 0px #F0545450;
         transition: 0.4s ease;
         &:hover {
@@ -87,18 +86,6 @@ const GlobalStyles = createGlobalStyle`
             transform: translate(0, 0);  
         }
     }
-
-    @media (max-width: 1440px) {
-    }
-    @media (max-width: 1224px) {
-    }
-    @media (max-width: 1024px) {
-    }
-    @media (max-width: 768px) {
-    }
-    @media (max-width: 520px) {
-    }
-
 `;
 
 export default GlobalStyles;

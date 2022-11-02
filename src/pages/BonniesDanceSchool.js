@@ -61,10 +61,10 @@ function BonniesDanceSchool({ darkTheme, pageWidth }) {
             "Bonnie’s Dance School is a private/home dance studio located in West Jordan, UT. They offer lessons for a wide range of dance styles including ballet, contemporary, and jazz, all for a excellent deal."
           }
           text2={
-            "Established in 2013*, Bonnie along with her other dance instructors have worked with thousands of aspiring dancers and enthusiasts."
+            "Established in 2013, Bonnie along with her other dance instructors have worked with thousands of aspiring dancers and enthusiasts."
           }
           text3={
-            "with this project was to change the style, update the page info, and enhance the user experience. Main painpoints from the original site were: lack of responsiveness across devices/screen sizes, lack of order and heirarchy, and poor color usage, creating friction with contrast in some areas and potential eye strain on users."
+            "with this project was to change the style, update the page info, and enhance the user experience. Main pain points from the original site were: lack of responsiveness across devices/screen sizes, lack of order and heirarchy, and poor color usage, creating friction with contrast in some areas and potential eye strain on users."
           }
         />
         <Design

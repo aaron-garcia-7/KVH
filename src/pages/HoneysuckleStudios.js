@@ -62,10 +62,10 @@ function HoneysuckleStudios({ darkTheme, pageWidth }) {
             "Honeysuckle Studios is a private/home eyelash studio located in West Jordan, UT. Bailey, the owner, offers a wide range of professional grade lash styles including classic, hybrid, and volume, at a competitive price."
           }
           text2={
-            "Established in 2021, Bailey, the owner, has grown her clientele and business to allow her to pursue the art of eyelash extensions full-time."
+            "Established in 2021, Bailey has grown her clientele and business to allow her to pursue the art of eyelash extensions full-time."
           }
           text3={
-            "with this project was to update the original design, which I had previously made. Main painpoints from the original site were: lack of call to action, dated look, and not the best color usage. There was also a lack of visual hierarchy with the navigation links."
+            "with this project was to update the original design, which I had previously made. Main pain points from the original site were: lack of call to action, dated look, and not the best color usage. There was also a lack of visual hierarchy with the navigation links."
           }
         />
         <Design

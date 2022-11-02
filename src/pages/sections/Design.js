@@ -43,6 +43,21 @@ function Design({
       : "1.2s cubic-bezier(.39,-0.27,.56,.55)",
   };
 
+  const [copy, setCopy] = useState(false);
+
+  const handleCopy = (item) => {
+    navigator.clipboard.writeText(item);
+    setCopy(true);
+  };
+
+  useEffect(() => {
+    const copyTimeOut = window.setTimeout(() => {
+      setCopy(false);
+    }, 1000);
+
+    return () => clearTimeout(copyTimeOut);
+  }, [copy]);
+
   return (
     <ScDesign>
       <div className="designText">
@@ -53,7 +68,21 @@ function Design({
         </article>
         <div className="palette">
           {palettes[id - 1].map((item, index) => (
-            <div key={index} className="color" style={{ background: item }} />
+            <div
+              key={index}
+              className="colorBlock"
+              onClick={() => handleCopy(item)}
+            >
+              <div
+                className="color"
+                style={{ background: item }}
+                // onClick={() => navigator.clipboard.writeText(item)}
+              />
+              <p className="textbox">
+                {item} <br />
+                <span className={copy ? "show" : ""}>copied!</span>
+              </p>
+            </div>
           ))}
         </div>
       </div>
@@ -126,13 +155,8 @@ const ScDesign = styled("section")`
     }
     .palette {
       position: relative;
-      .color {
+      .colorBlock {
         position: absolute;
-        width: calc(2.4rem + 2.4vw);
-        height: calc(2.4rem + 2.4vw);
-        border-radius: 50%;
-        cursor: pointer;
-        transition: 0.3s ease;
         &:nth-of-type(2) {
           left: 10%;
         }
@@ -145,8 +169,33 @@ const ScDesign = styled("section")`
         &:nth-of-type(5) {
           left: 40%;
         }
+        .color {
+          margin-bottom: 1rem;
+          width: calc(2.4rem + 2.4vw);
+          height: calc(2.4rem + 2.4vw);
+          border-radius: 50%;
+          cursor: pointer;
+          transition: 0.3s ease;
+        }
+        .textbox {
+          opacity: 0;
+          transition: 0.4s ease;
+          span {
+            /* font-size: calc(0.4rem + 0.4vw); */
+            text-transform: uppercase;
+            opacity: 0;
+          }
+          .show {
+            opacity: 1;
+          }
+        }
         &:hover {
-          transform: translate(0, 12%);
+          .color {
+            transform: translate(0, 12%);
+          }
+          .textbox {
+            opacity: 1;
+          }
         }
       }
     }
@@ -263,7 +312,7 @@ const ScDesign = styled("section")`
         }
       }
       .palette {
-        .color {
+        .colorBlock {
           &:nth-of-type(2) {
             left: 8%;
           }
