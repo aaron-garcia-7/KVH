@@ -9,6 +9,7 @@ import projectData from "../../data/projectData";
 function Work({ pageWidth }) {
   const [cardHover, setCardHover] = useState(false);
   const [cardHover2, setCardHover2] = useState(false);
+  const [cardHover3, setCardHover3] = useState(false);
 
   // Parallax Effect
   const [offset, setOffset] = useState(0);
@@ -37,6 +38,16 @@ function Work({ pageWidth }) {
     transition: cardHover2 ? "0.8s ease 0.2s" : "0.4s",
   };
 
+  const bubbleStyle2 = {
+    transform: cardHover3 ? "scale(1)" : "scale(0)",
+    transition: cardHover3 ? "0.5s ease" : "0.5s ease 0.2s",
+  };
+
+  const bubbleTextStyle2 = {
+    opacity: cardHover3 ? 1 : 0,
+    transition: cardHover3 ? "0.8s ease 0.2s" : "0.4s",
+  };
+
   return (
     <ScWork id="work">
       <header className="workTitle">
@@ -59,6 +70,7 @@ function Work({ pageWidth }) {
           url={obj.url}
           setCardHover={setCardHover}
           setCardHover2={setCardHover2}
+          setCardHover3={setCardHover3}
         />
       ))}
       <MouseDiv cardHover={cardHover} />
@@ -76,8 +88,8 @@ function Work({ pageWidth }) {
       </div>
       <div className="textBubble textBubble2" style={parallaxStyleBubble}>
         <img src={arrow} alt="" />
-        <div className="innerBubble" style={bubbleStyle}>
-          <p className="bubbleText" style={bubbleTextStyle}>
+        <div className="innerBubble" style={bubbleStyle2}>
+          <p className="bubbleText" style={bubbleTextStyle2}>
             Your Project Here
           </p>
         </div>
@@ -87,8 +99,8 @@ function Work({ pageWidth }) {
 }
 
 const ScWork = styled("section")`
-  height: 340vh;
-  min-height: 146rem;
+  height: 220vh;
+  min-height: 120rem;
   > * {
     position: absolute;
   }
@@ -104,15 +116,15 @@ const ScWork = styled("section")`
       font-size: calc(0.7rem + 0.7vw);
       letter-spacing: 0.2rem;
       position: absolute;
-      top: 0;
-      left: -2vw;
+      top: -2vw;
+      right: -3.2vw;
       opacity: 0;
       animation: fade 2s ease 0.2s forwards;
     }
   }
 
   #card1 {
-    top: 16%;
+    top: 20%;
     right: 12%;
     .card {
       img {
@@ -126,7 +138,7 @@ const ScWork = styled("section")`
     }
   }
   #card2 {
-    top: 32%;
+    top: 40%;
     left: 12%;
     .card {
       img {
@@ -140,22 +152,8 @@ const ScWork = styled("section")`
     }
   }
   #card3 {
-    top: 56%;
+    top: 72%;
     right: 34%;
-    .card {
-      img {
-        width: 36%;
-        transform: translate(-50%, -50%);
-      }
-    }
-    aside {
-      bottom: 12%;
-      right: -80%;
-    }
-  }
-  #card4 {
-    top: 80%;
-    left: 18%;
     .card {
       img {
         width: 90%;
@@ -216,20 +214,24 @@ const ScWork = styled("section")`
   }
 
   .textBubble1 {
-    top: 28%;
+    top: 34%;
     left: 2%;
   }
   .textBubble2 {
-    top: 89%;
-    left: calc(16rem + 32%);
+    top: 84%;
+    left: calc(2rem + 66vw);
+    transition: left 0s;
     img {
       transform: rotate(-225deg);
     }
   }
 
+  @media (max-width: 1440px) {
+    height: 240vh;
+  }
   @media (max-width: 1224px) {
-    height: 320vh;
-    min-height: 128rem;
+    height: 220vh;
+    min-height: 112rem;
     .workTitle {
       right: 8%;
     }
@@ -239,12 +241,12 @@ const ScWork = styled("section")`
     }
 
     #card2 {
-      top: 36%;
+      top: 48%;
       left: 8%;
     }
 
     #card3 {
-      top: 56%;
+      top: 76%;
       right: 8%;
       aside {
         text-align: right;
@@ -252,27 +254,22 @@ const ScWork = styled("section")`
         width: 100%;
       }
     }
-
-    #card4 {
-      top: 76%;
-      left: 8%;
-      aside {
-        transform: translate(100%, -100%);
-      }
-    }
-
     .textBubble1 {
-      top: 30%;
+      top: 42%;
     }
     .textBubble2 {
-      top: 87%;
-      left: calc(10rem + 32%);
+      top: 86%;
+      left: auto;
+      right: calc(10rem + 32vw);
+      img {
+        transform: rotate(-45deg);
+      }
     }
   }
 
   @media (max-width: 768px) {
-    height: 320vh;
-    min-height: 168rem;
+    height: 240vh;
+    min-height: 128rem;
     .workTitle {
       top: 4%;
       &::before {
@@ -283,7 +280,7 @@ const ScWork = styled("section")`
     }
 
     #card1 {
-      top: 14%;
+      top: 16%;
       right: 50%;
       transform: translate(50%, 0);
       .card {
@@ -298,7 +295,7 @@ const ScWork = styled("section")`
     }
 
     #card2 {
-      top: 36%;
+      top: 46%;
       left: 50%;
       transform: translate(-50%, 0);
       .card {
@@ -309,20 +306,8 @@ const ScWork = styled("section")`
     }
 
     #card3 {
-      top: 58%;
       right: 50%;
       transform: translate(50%, 0);
-      .card {
-        img {
-          width: 24%;
-        }
-      }
-    }
-
-    #card4 {
-      top: 80%;
-      left: 50%;
-      transform: translate(-50%, 0);
     }
 
     .textBubble {
@@ -331,8 +316,11 @@ const ScWork = styled("section")`
   }
 
   @media (max-width: 480px) {
-    height: 280vh;
-    min-height: 140rem;
+    /* border: 2px dashed yellow; */
+    /* height: 280vh; */
+    /* min-height: 140rem; */
+    height: 208vh;
+    min-height: 100rem;
   }
 `;
 

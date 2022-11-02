@@ -81,8 +81,8 @@ function SkillsCard({cardNum, setCardNum, darkTheme, skill1, skill2, skill3, ski
 
 const ScSkillsCard = styled('div')`
     position: absolute;
-    /* top: -40%; */
-    top: 80%;
+    /* top: 80%; */ // ICONIC
+    top: 62%;
     width: 100%;
     height: 86%;
     padding: 2.4rem 1.6rem;
@@ -119,20 +119,21 @@ const ScSkillsCard = styled('div')`
     }
 
     @media (max-width: 1440px) {
-        top: 76%;
+        /* top: 76%; */ // ICONIC
+        top: 62%; 
         height: 96%;
     }
 
     @media (max-width: 1224px) {
-        /* top: 90%; */
-        /* height: 90%; */
+        top: 68%; // Remove when including iconic
         header {
             margin: 0.4rem 0 3.2rem 0;
         }
     }
 
     @media (max-width: 768px) {
-        top: 96%;
+        /* top: 96%; */ // ICONIC
+        top: 84%;
         header {
             margin: 0 0 2.4rem 0;
         }
@@ -145,7 +146,8 @@ const ScSkillsCard = styled('div')`
     }
 
     @media (max-width: 520px) {
-        top: 104%;
+        /* top: 104%; */ // ICONIC
+        top: 92%;
         width: 100%;
         header {
             > * {

@@ -20,7 +20,8 @@ function Nav({darkTheme, setDarkTheme, pageWidth, setMenuOpen}) {
         <div className="spacer1" />
         <ThemeToggle darkTheme={darkTheme} setDarkTheme={setDarkTheme} setMenuOpen={setMenuOpen}/>
         <ul className="navLinks" style={linksStyle}>
-            {location.pathname === "/" && <Link className='navItem' href="#work" to="work" smooth={'easeInOutQuint'} offset={pageWidth > 768 ? 150 : 40} tabIndex={6}>
+            {location.pathname === "/" && <Link className='navItem' href="#work" to="work" smooth={'easeInOutQuint'} offset={pageWidth > 768 ? 106 : 40} tabIndex={6}>
+            {/* {location.pathname === "/" && <Link className='navItem' href="#work" to="work" smooth={'easeInOutQuint'} offset={pageWidth > 768 ? 150 : 40} tabIndex={6}> ICONIC */}
               <div>
                 <p className='text workText'>Work</p>
               </div>
@@ -35,12 +36,13 @@ function Nav({darkTheme, setDarkTheme, pageWidth, setMenuOpen}) {
               |
               </div>
             </li>
-            {location.pathname === '/' && <Link className='navItem' href="#about" to="about" smooth={'easeInOutQuint'} offset={pageWidth > 768 ? 150 : 40} tabIndex={7}>
+            {location.pathname === '/' && <Link className='navItem' href="#about" to="about" smooth={'easeInOutQuint'} offset={pageWidth > 768 ? 150 : 112} tabIndex={7}>
               <div>
                 <p className='text aboutText'>About</p>
               </div>
             </Link>}
-            {location.pathname !== '/' && <Link className='navItem' href="#contact" to="contact" smooth={'easeInOutQuint'} offset={pageWidth > 768 ? 150 : 40} tabIndex={7}>
+            {location.pathname !== '/' && <Link className='navItem' href="#contact" to="contact" smooth={'easeInOutQuint'} offset={pageWidth > 768 ? 106 : 40} tabIndex={7}>
+            {/* {location.pathname !== '/' && <Link className='navItem' href="#contact" to="contact" smooth={'easeInOutQuint'} offset={pageWidth > 768 ? 150 : 40} tabIndex={7}> ICONIC */}
               <div>
                 <p className='text contactText'>Contact</p>
               </div>
@@ -63,9 +65,9 @@ function Nav({darkTheme, setDarkTheme, pageWidth, setMenuOpen}) {
 const ScNav = styled(motion.nav)`
     position: absolute;
     top: 3.2rem;
-    width: 100vw;
+    left: 5%;
+    width: 90vw;
     height: 3.2rem;
-    padding: 0 4vw;
     display: flex;
     justify-content: space-between;
     align-items: center;

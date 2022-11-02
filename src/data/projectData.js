@@ -1,6 +1,6 @@
 import project1 from "../images/graphics/project1.svg";
 import project2 from "../images/graphics/project2.svg";
-import project3 from "../images/graphics/project3.svg";
+// import project3 from "../images/graphics/project3.svg";
 import project4 from "../images/graphics/project4.svg";
 
 const projectData = [
@@ -26,17 +26,17 @@ const projectData = [
     date: "Aug. 2022",
     url: "/honeysuckle-studios",
   },
-  {
-    title: "Iconic Creative",
-    name1: "Iconic Creative",
-    name2: null,
-    name3: null,
-    img: project3,
-    role: "Front-End Development",
-    role2: "Web Animation",
-    date: "Oct. 2022",
-    url: "/iconic-creative",
-  },
+  // {
+  //   title: "Iconic Creative",
+  //   name1: "Iconic Creative",
+  //   name2: null,
+  //   name3: null,
+  //   img: project3,
+  //   role: "Front-End Development",
+  //   role2: "Web Animation",
+  //   date: "Oct. 2022",
+  //   url: "/iconic-creative",
+  // },
   {
     title: "What’s Next?",
     name1: "What’s Next?",

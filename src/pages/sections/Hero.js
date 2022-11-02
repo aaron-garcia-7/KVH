@@ -130,7 +130,7 @@ const ScHero = styled("section")`
       font-size: calc(0.7rem + 0.7vw);
       letter-spacing: 0.2rem;
       position: absolute;
-      top: 0;
+      top: -1vw;
       left: -2vw;
       opacity: 0;
       animation: fade 2s ease 3.6s forwards;
@@ -221,7 +221,7 @@ const ScHero = styled("section")`
         font-size: 6rem;
       }
       h3 {
-        width: 60%;
+        width: 80%;
       }
     }
     .scrollBubble {
@@ -259,6 +259,12 @@ const ScHero = styled("section")`
       }
     }
   }
+
+  /* @media (max-width: 480px) {
+    .scrollBubble {
+      bottom: 12%;
+    }
+  } */
 `;
 
 export default Hero;

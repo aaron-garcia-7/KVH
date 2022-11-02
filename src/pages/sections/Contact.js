@@ -249,7 +249,8 @@ const ScContact = styled("section")`
 
     .submitDiv {
       position: absolute;
-      top: 210%;
+      /* top: 210%; */ // ICONIC
+      top: 186%;
       right: -22%;
       width: calc(4.8rem + 4vw);
       height: calc(4.8rem + 4vw);
@@ -437,7 +438,8 @@ const ScContact = styled("section")`
   @media (max-width: 1440px) {
     form {
       .submitDiv {
-        top: 196%;
+        /* top: 196%; */ // ICONIC
+        top: 180%;
         right: -16%;
       }
       .altSubmit {
@@ -465,7 +467,8 @@ const ScContact = styled("section")`
       top: 28%;
       left: 12%;
       .submitDiv {
-        top: 186%;
+        /* top: 186%; */ // ICONIC
+        top: 176%;
         right: -16%;
       }
       .altSubmit {
@@ -501,7 +504,8 @@ const ScContact = styled("section")`
       top: 24%;
       left: 8% !important;
       .submitDiv {
-        top: 186%;
+        /* top: 186%; */ //ICONIC
+        top: 178%;
         right: -16%;
       }
       .altSubmit {
@@ -541,7 +545,8 @@ const ScContact = styled("section")`
         }
       }
       .submitDiv {
-        top: 216%;
+        /* top: 216%; */ // ICONIC
+        top: 204%;
         right: -10%;
       }
       .altSubmit {
@@ -571,7 +576,8 @@ const ScContact = styled("section")`
     form {
       width: 80%;
       .submitDiv {
-        top: 220%;
+        /* top: 220%; */ // ICONIC
+        top: 206%;
       }
       .altSubmit {
         top: 210%;
@@ -600,6 +606,23 @@ const ScContact = styled("section")`
       &::before {
         top: -6vw;
         left: 0;
+      }
+    }
+    form {
+      width: 80%;
+      .submitDiv {
+        top: 200%; // Remove when Iconic is added
+        .planeDiv {
+          /* border: 1px solid blue; */
+          top: -16%;
+          left: -16%;
+          width: 120%;
+          height: 120%;
+          animation: flight 6s ease infinite;
+          .faIcon {
+            opacity: 1;
+          }
+        }
       }
     }
   }
