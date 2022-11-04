@@ -73,7 +73,7 @@ function Work({ pageWidth }) {
           setCardHover3={setCardHover3}
         />
       ))}
-      <MouseDiv cardHover={cardHover} />
+      <MouseDiv cardHover={cardHover} cardHover3={cardHover3} />
       <div className="workBubbleDiv" style={parallaxStyle}>
         <div className="workBubble" />
       </div>

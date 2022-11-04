@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import { NavLink } from "react-router-dom";
+import { Link } from 'react-scroll';
 
 import styled from 'styled-components'
 
@@ -20,7 +21,7 @@ function ProjectCard({id, title, name1, name2, name3, img, role, role2, date, ur
     // End Parallax
 
   return (
-    <ScProjectCard id={id === 1 ? "card1" : id === 2 ? "card2" : id === 3 ? "card3" : "card4"}>
+    <ScProjectCard id={id === 1 ? "card1" : id === 2 ? "card2" : "card3"}>
         {id === 2 ?
             <NavLink to={url} 
             onMouseEnter={
@@ -39,7 +40,11 @@ function ProjectCard({id, title, name1, name2, name3, img, role, role2, date, ur
                 <img src={img} alt={title} />
             </figure>
         </NavLink> : id === 3 ?
-        <NavLink to={url} 
+        <Link           
+        href="#contact"
+        to="contact"
+        smooth={"easeInOutQuint"}
+        // offset={pageWidth > 768 ? 80 : 40} 
             onMouseEnter={
                 () => {
                     setCardHover(true)
@@ -55,7 +60,7 @@ function ProjectCard({id, title, name1, name2, name3, img, role, role2, date, ur
                 <figcaption className='a11y'>{title}</figcaption>
                 <img src={img} alt={title} />
             </figure>
-        </NavLink> :
+        </Link> :
         <NavLink to={url} 
             onMouseEnter={
                 () => {

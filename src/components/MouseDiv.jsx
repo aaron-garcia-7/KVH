@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 
-function MouseDiv({cardHover}) {
+function MouseDiv({cardHover, cardHover3}) {
 
     const [posX, setPosX] = useState(window.pageX);
     const [posY, setPosY] = useState(window.pageY);
@@ -27,7 +27,7 @@ function MouseDiv({cardHover}) {
 
   return (
     <ScMouseDiv style={mouseStyle}>
-        <p>View Case</p>
+        <p>{cardHover3 ? "Contact" : "View Case"}</p>
     </ScMouseDiv>
   )
 }

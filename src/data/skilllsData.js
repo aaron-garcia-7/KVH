@@ -17,11 +17,11 @@ const skillsData = [
   },
   {
     title: "Upcoming",
-    skill1: "Tailwind CSS",
+    skill1: "Next js",
     skill2: "TypeScript",
-    skill3: "Next js",
-    skill4: "Webflow",
-    skill5: "Three js",
+    skill3: "Tailwind CSS",
+    skill4: "Three js",
+    skill5: "Webflow",
   },
 ];
 
