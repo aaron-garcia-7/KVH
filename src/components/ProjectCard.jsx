@@ -4,7 +4,7 @@ import { Link } from 'react-scroll';
 
 import styled from 'styled-components'
 
-function ProjectCard({id, title, name1, name2, name3, img, role, role2, date, url, setCardHover, setCardHover2, setCardHover3}) {
+function ProjectCard({id, title, name1, name2, name3, img, role, role2, date, url, setCardHover, setCardHover2, setCardHover3, pageWidth}) {
     
     // Parallax Effect
     const [offset, setOffset] = useState(0);
@@ -44,7 +44,7 @@ function ProjectCard({id, title, name1, name2, name3, img, role, role2, date, ur
         href="#contact"
         to="contact"
         smooth={"easeInOutQuint"}
-        // offset={pageWidth > 768 ? 80 : 40} 
+        offset={pageWidth > 768 ? 80 : 40} 
             onMouseEnter={
                 () => {
                     setCardHover(true)

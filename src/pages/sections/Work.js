@@ -71,6 +71,7 @@ function Work({ pageWidth }) {
           setCardHover={setCardHover}
           setCardHover2={setCardHover2}
           setCardHover3={setCardHover3}
+          pageWidth={pageWidth}
         />
       ))}
       <MouseDiv cardHover={cardHover} cardHover3={cardHover3} />
