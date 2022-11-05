@@ -302,8 +302,12 @@ const ScDevelopment = styled("section")`
         height: 52vw;
         figcaption {
           bottom: -76vw;
+          transition: 0s;
         }
       }
+    }
+    .developmentBubbleDiv {
+      transition: 0s;
     }
   }
 

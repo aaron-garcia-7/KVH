@@ -117,7 +117,6 @@ const ScAbout = styled("section")`
     width: calc(24rem + 12vw);
     top: 32%;
     left: 14%;
-    z-index: 2;
     .bioText {
       width: 120%;
       font-size: calc(0.8rem + 0.8vw);
@@ -280,6 +279,7 @@ const ScAbout = styled("section")`
       left: 50%;
       transform: translate(-50%, 0);
       width: calc(18rem + 18vw);
+      z-index: 2;
       .bioText {
         width: 86%;
         margin-bottom: 3.2rem;
@@ -296,6 +296,9 @@ const ScAbout = styled("section")`
       top: 60%;
       right: 50%;
       transform: translate(50%, 0);
+    }
+    .aboutBubbleDiv {
+      transition: 0s;
     }
   }
 

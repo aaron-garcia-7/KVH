@@ -578,6 +578,7 @@ const ScContact = styled("section")`
       .submitDiv {
         /* top: 220%; */ // ICONIC
         top: 206%;
+        transition: 0s;
       }
       .altSubmit {
         top: 210%;
@@ -598,6 +599,9 @@ const ScContact = styled("section")`
       bottom: 6%;
       left: 2% !important;
       transform: scale(0.8);
+    }
+    .contactBubbleDiv {
+      transition: 0s;
     }
   }
 

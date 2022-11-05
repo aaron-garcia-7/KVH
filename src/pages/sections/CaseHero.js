@@ -253,7 +253,6 @@ const ScCaseHero = styled("section")`
         transform: translate(-50%, 0);
         animation: slideUpAdjusted 1.4s cubic-bezier(0.19, 0.83, 0.35, 1.23) 1s
           forwards;
-
         &:nth-of-type(2) {
           top: 0 !important;
           width: 100%;

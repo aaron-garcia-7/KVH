@@ -394,6 +394,7 @@ const ScDesign = styled("section")`
       figure {
         figcaption {
           bottom: -56vw;
+          transition: 0s;
         }
       }
     }

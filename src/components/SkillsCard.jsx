@@ -149,6 +149,7 @@ const ScSkillsCard = styled('div')`
         /* top: 104%; */ // ICONIC
         top: 92%;
         width: 100%;
+        transition: 0s, background 0.6s ease;
         header {
             > * {
                 margin: 0 0.2rem;

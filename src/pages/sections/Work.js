@@ -316,10 +316,12 @@ const ScWork = styled("section")`
     }
   }
 
+  @media (max-width: 520px) {
+    .workBubbleDiv {
+      transition: 0s;
+    }
+  }
   @media (max-width: 480px) {
-    /* border: 2px dashed yellow; */
-    /* height: 280vh; */
-    /* min-height: 140rem; */
     height: 208vh;
     min-height: 100rem;
   }

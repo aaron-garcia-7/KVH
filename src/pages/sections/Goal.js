@@ -194,9 +194,10 @@ const ScGoal = styled("section")`
     /* border: 1px dashed forestgreen; */
     height: calc(32rem + 64vw);
     .goalText {
-      top: 2%;
+      top: -6%;
       h2 {
         transform: translate(0, 0) scale(1);
+        /* margin-bottom: calc(4rem + 2vw); */
       }
       p {
         font-size: calc(0.8rem + 0.8vw);
@@ -204,6 +205,9 @@ const ScGoal = styled("section")`
     }
     .videoContainer {
       top: 60%;
+    }
+    .goalBubbleDiv {
+      transition: 0s;
     }
   }
 
