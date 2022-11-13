@@ -20,8 +20,8 @@ const skillsData = [
     skill1: "Next js",
     skill2: "TypeScript",
     skill3: "Tailwind CSS",
-    skill4: "Three js",
-    skill5: "Webflow",
+    skill4: "Node js, Express",
+    skill5: "MongoDB, Mongoose",
   },
 ];
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import skillsData from "../../data/skilllsData";
+import skillsData from "../../data/skillsData";
 import resume from "../../documents/resume.pdf";
 
 import portrait from "../../images/photos/portrait.png";
