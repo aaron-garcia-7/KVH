@@ -6,7 +6,8 @@ import styled from "styled-components";
 import arrow from "../../images/graphics/arrow.svg";
 import arrow2 from "../../images/graphics/arrow2.svg";
 
-function Contact({ darkTheme, pageWidth, inHome }) {
+function Contact({ darkTheme, inHome }) {
+  let currentYear = new Date().getFullYear();
   // Parallax Effect
   const [offset, setOffset] = useState(0);
   const parallaxScroll = () => {
@@ -144,7 +145,7 @@ function Contact({ darkTheme, pageWidth, inHome }) {
         </div>
       </aside>
       <footer>
-        <h2>&copy;2022 &nbsp; Made By Me, Aaron Garcia</h2>
+        <h2>&copy;{currentYear} &nbsp; Made By Me, Aaron Garcia</h2>
       </footer>
       <div className="contactBubbleDiv" style={parallaxStyle}>
         <div className="contactBubble" />
@@ -249,8 +250,8 @@ const ScContact = styled("section")`
 
     .submitDiv {
       position: absolute;
-      /* top: 210%; */ // ICONIC
-      top: 186%;
+      top: 200%; // Four Projects
+      /* top: 186%; */
       right: -22%;
       width: calc(4.8rem + 4vw);
       height: calc(4.8rem + 4vw);
@@ -438,8 +439,8 @@ const ScContact = styled("section")`
   @media (max-width: 1440px) {
     form {
       .submitDiv {
-        /* top: 196%; */ // ICONIC
-        top: 180%;
+        top: 192%; // Four Projects
+        /* top: 180%; */
         right: -16%;
       }
       .altSubmit {
@@ -467,8 +468,8 @@ const ScContact = styled("section")`
       top: 28%;
       left: 12%;
       .submitDiv {
-        /* top: 186%; */ // ICONIC
-        top: 176%;
+        top: 190%; // Four Projects
+        /* top: 176%; */
         right: -16%;
       }
       .altSubmit {
@@ -504,8 +505,8 @@ const ScContact = styled("section")`
       top: 24%;
       left: 8% !important;
       .submitDiv {
-        /* top: 186%; */ //ICONIC
-        top: 178%;
+        top: 190%; // Four Projecs
+        /* top: 178%; */
         right: -16%;
       }
       .altSubmit {
@@ -545,8 +546,8 @@ const ScContact = styled("section")`
         }
       }
       .submitDiv {
-        /* top: 216%; */ // ICONIC
-        top: 204%;
+        top: 216%; // Four Projects
+        /* top: 204%; */
         right: -10%;
       }
       .altSubmit {
@@ -576,8 +577,8 @@ const ScContact = styled("section")`
     form {
       width: 80%;
       .submitDiv {
-        /* top: 220%; */ // ICONIC
-        top: 206%;
+        top: 224%; // Four Projects
+        /* top: 206%; */
         transition: 0s;
       }
       .altSubmit {
@@ -615,7 +616,7 @@ const ScContact = styled("section")`
     form {
       width: 80%;
       .submitDiv {
-        top: 200%; // Remove when Iconic is added
+        top: 212%; // Remove when Iconic is added
         .planeDiv {
           /* border: 1px solid blue; */
           top: -16%;

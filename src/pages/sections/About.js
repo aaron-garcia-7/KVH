@@ -3,7 +3,7 @@ import styled from "styled-components";
 import skillsData from "../../data/skillsData";
 import resume from "../../documents/resume.pdf";
 
-import portrait from "../../images/photos/portrait.png";
+import portrait from "../../images/photos/portrait.webp";
 import arrow from "../../images/graphics/arrow.svg";
 import arrow2 from "../../images/graphics/arrow2.svg";
 import SkillsCard from "../../components/SkillsCard";
@@ -46,7 +46,7 @@ function About({ darkTheme }) {
       </header>
       <div className="bio">
         <p className="bioText">
-          Seeking to elevate client-side interactions with React js.{" "}
+          Seeking to elevate client-side interactions with React js.
           <br className="break" /> I strive to offer a genuine user experience
           all while maintaining best practices for responsiveness and
           accessibility.
@@ -274,6 +274,10 @@ const ScAbout = styled("section")`
     min-height: 86rem;
     .aboutTitle {
       left: 12%;
+      &::before {
+        top: -5vw;
+        left: 0;
+      }
     }
     .bio {
       left: 50%;
@@ -307,6 +311,7 @@ const ScAbout = styled("section")`
     min-height: 68rem;
     .aboutTitle {
       top: 8%;
+      left: 8%;
     }
     .bio {
       top: 18%;

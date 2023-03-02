@@ -1,10 +1,11 @@
 import React, {useState, useEffect} from 'react'
 import { NavLink } from "react-router-dom";
-import { Link } from 'react-scroll';
+// import { Link } from 'react-scroll';
+// Use the 'Link' depending on what functionality you'd like the last "What's Next" card to be. External link or jump to contact form.
 
 import styled from 'styled-components'
 
-function ProjectCard({id, title, name1, name2, name3, img, role, role2, date, url, setCardHover, setCardHover2, setCardHover3, pageWidth}) {
+function ProjectCard({id, title, name1, name2, name3, img, role, role2, date, url, setCardHover, setCardHover2, setCardHoverLast, pageWidth}) {
     
     // Parallax Effect
     const [offset, setOffset] = useState(0);
@@ -21,76 +22,81 @@ function ProjectCard({id, title, name1, name2, name3, img, role, role2, date, ur
     // End Parallax
 
   return (
-    <ScProjectCard id={id === 1 ? "card1" : id === 2 ? "card2" : "card3"}>
-        {id === 2 ?
-            <NavLink to={url} 
-            onMouseEnter={
-                () => {
-                    setCardHover(true)
-                    setCardHover2(true)
-                }
-            } 
-            onMouseLeave={() => {
-                setCardHover(false)
-                setCardHover2(false)
-            }} 
-            >
-            <figure className="card" style={{background: id === 1 ? "var(--blue)" : id === 2 ? "var(--red)" : id === 3 ? "#121212" : "var(--blue)"}}>
-                <figcaption className='a11y'>{title}</figcaption>
-                <img src={img} alt={title} />
-            </figure>
-        </NavLink> : id === 3 ?
-        <Link           
-        href="#contact"
-        to="contact"
-        smooth={"easeInOutQuint"}
-        offset={pageWidth > 768 ? 80 : 40} 
-            onMouseEnter={
-                () => {
-                    setCardHover(true)
-                    setCardHover3(true)
-                }
-            } 
-            onMouseLeave={() => {
-                setCardHover(false)
-                setCardHover3(false)
-            }} 
-            >
-            <figure className="card" style={{background: id === 1 ? "var(--blue)" : id === 2 ? "var(--red)" : id === 3 ? "#121212" : "var(--blue)"}}>
-                <figcaption className='a11y'>{title}</figcaption>
-                <img src={img} alt={title} />
-            </figure>
-        </Link> :
-        <NavLink to={url} 
-            onMouseEnter={
-                () => {
-                    setCardHover(true)
-                }
-            } 
-            onMouseLeave={() => {
-                setCardHover(false)
-            }} 
-            >
-            <figure className="card" style={{background: id === 1 ? "var(--blue)" : id === 2 ? "var(--red)" : id === 3 ? "#121212" : "var(--blue)"}}>
-                <figcaption className='a11y'>{title}</figcaption>
-                <img src={img} alt={title} />
-            </figure>
-        </NavLink>
-        
-        }
-        {<aside className="sideText1" style={parallaxStyleText}>
-        <h3 className="a11y">{title}</h3>
-        <h3 className={id === 3 || id === 4 ? "singleLine" : null}><span>{name1}</span><br /><span>{name2}</span><br /><span>{name3}</span></h3>
-        <p className='role1'>{role}</p>
-        <p className='role2'>{role2}</p>
-        <p className='cardDate'>{date}</p>
-      </aside>}
+    <ScProjectCard id={id === 1 ? "card1" : id === 2 ? "card2" : id === 3 ? "card3" : "card4"}>
+        {id !== 4 ? <NavLink to={url} 
+                onMouseEnter={
+                    () => {
+                        setCardHover(true)
+                        if(id === 2){
+                            setCardHover2(true);
+                        }
+                    }
+                } 
+                onMouseLeave={() => {
+                    setCardHover(false)
+                    setCardHover2(false)
+                }} 
+                >
+                <figure className="card" style={{background: id === 1 ? "var(--blue)" : id === 2 ? "var(--red)" : id === 3 ? "#121212" : "var(--blue)"}}>
+                    <figcaption className='a11y'>{title}</figcaption>
+                    <img src={img} alt={title} />
+                </figure>
+            </NavLink> :
+            <a           
+            href="https://joinsunder.com/"
+            target="_blank"
+            rel='noreferrer'
+                onMouseEnter={
+                    () => {
+                        setCardHover(true)
+                        setCardHoverLast(true)
+                    }
+                } 
+                onMouseLeave={() => {
+                    setCardHover(false)
+                    setCardHoverLast(false)
+                }} 
+                >
+                <figure className="card" style={{background: "var(--blue)"}}>
+                    <figcaption className='a11y'>{title}</figcaption>
+                    <img src={img} alt={title} />
+                </figure>
+            </a>}
+            {/* <Link           
+            href="#contact"
+            to="contact"
+            smooth={"easeInOutQuint"}
+            offset={pageWidth > 768 ? 80 : 40} 
+                onMouseEnter={
+                    () => {
+                        setCardHover(true)
+                        setCardHoverLast(true)
+                    }
+                } 
+                onMouseLeave={() => {
+                    setCardHover(false)
+                    setCardHoverLast(false)
+                }} 
+                >
+                <figure className="card" style={{background: "var(--blue)"}}>
+                    <figcaption className='a11y'>{title}</figcaption>
+                    <img src={img} alt={title} />
+                </figure>
+            </Link>} */}
+        <aside className="sideText1" style={parallaxStyleText}>
+            <h3 className="a11y">{title}</h3>
+            <h3 className={id === 4 ? "singleLine" : null}><span>{name1}</span><br /><span>{name2}</span><br /><span>{name3}</span></h3>
+            <p className='role1'>{role}</p>
+            <p className='role2'>{role2}</p>
+            <p className='cardDate'>{date}</p>
+        </aside>
+        {/* Side Text 2 SMALLER DEVICES / LAYOUT SHIFT */}
         <aside className="sideText2">
-        <h3 className="a11y">{title}</h3>
-        <h3>{title}</h3>
-        <p className='role1'>{role}{role2 && ` + ${role2}`}</p>
-        <p className='cardDate'>{date}</p>
-      </aside>
+            <h3 className="a11y">{title}</h3>
+            <h3>{title}</h3>
+            <p className='role1'>{role}{role2 && ` + ${role2}`}</p>
+            <p className='cardDate'>{date}</p>
+        </aside>
     </ScProjectCard>
   )
 }
@@ -130,7 +136,6 @@ const ScProjectCard = styled('div')`
                     width: 0%;
                     height: 108%;
                     background: var(--smartBg);
-                    /* background: red; */
                 }
             }
         }
@@ -159,7 +164,6 @@ const ScProjectCard = styled('div')`
         &:hover,
         &:focus {
             & ~ .sideText1 {
-                /* border: 1px dashed grey; */
                 h3 {
                     span {
                         &::before {
@@ -215,8 +219,8 @@ const ScProjectCard = styled('div')`
         .sideText2 {
             display: block;
             position: absolute;
-            top: 0;
-            left: 0;
+            top: 0 !important;
+            left: 0 !important;
             transform: translate(0, 0) !important;
             width: 100%;
             height: 100%;

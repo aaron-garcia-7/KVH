@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from 'react'
 import { NavLink } from "react-router-dom";
+import { Link } from 'react-scroll';
 
 import styled from 'styled-components'
 
-function ProjectCard({id, title, name1, name2, name3, img, role, role2, date, url, setCardHover, setCardHover2}) {
+function ProjectCard({id, title, name1, name2, name3, img, role, role2, date, url, setCardHover, setCardHover2, setCardHover3, pageWidth}) {
     
     // Parallax Effect
     const [offset, setOffset] = useState(0);
@@ -20,8 +21,8 @@ function ProjectCard({id, title, name1, name2, name3, img, role, role2, date, ur
     // End Parallax
 
   return (
-    <ScProjectCard id={id === 1 ? "card1" : id === 2 ? "card2" : id === 3 ? "card3" : "card4"}>
-        {id === 2 || id == 4 ?
+    <ScProjectCard id={id === 1 ? "card1" : id === 2 ? "card2" : "card3"}>
+        {id === 2 ?
             <NavLink to={url} 
             onMouseEnter={
                 () => {
@@ -38,22 +39,43 @@ function ProjectCard({id, title, name1, name2, name3, img, role, role2, date, ur
                 <figcaption className='a11y'>{title}</figcaption>
                 <img src={img} alt={title} />
             </figure>
-        </NavLink> : 
+        </NavLink> : id === 3 ?
+        <Link           
+        href="#contact"
+        to="contact"
+        smooth={"easeInOutQuint"}
+        offset={pageWidth > 768 ? 80 : 40} 
+            onMouseEnter={
+                () => {
+                    setCardHover(true)
+                    setCardHover3(true)
+                }
+            } 
+            onMouseLeave={() => {
+                setCardHover(false)
+                setCardHover3(false)
+            }} 
+            >
+            <figure className="card" style={{background: id === 1 ? "var(--blue)" : id === 2 ? "var(--red)" : id === 3 ? "#121212" : "var(--blue)"}}>
+                <figcaption className='a11y'>{title}</figcaption>
+                <img src={img} alt={title} />
+            </figure>
+        </Link> :
         <NavLink to={url} 
-        onMouseEnter={
-            () => {
-                setCardHover(true)
-            }
-        } 
-        onMouseLeave={() => {
-            setCardHover(false)
-        }} 
-        >
-        <figure className="card" style={{background: id === 1 ? "var(--blue)" : id === 2 ? "var(--red)" : id === 3 ? "#121212" : "var(--blue)"}}>
-            <figcaption className='a11y'>{title}</figcaption>
-            <img src={img} alt={title} />
-        </figure>
-    </NavLink>
+            onMouseEnter={
+                () => {
+                    setCardHover(true)
+                }
+            } 
+            onMouseLeave={() => {
+                setCardHover(false)
+            }} 
+            >
+            <figure className="card" style={{background: id === 1 ? "var(--blue)" : id === 2 ? "var(--red)" : id === 3 ? "#121212" : "var(--blue)"}}>
+                <figcaption className='a11y'>{title}</figcaption>
+                <img src={img} alt={title} />
+            </figure>
+        </NavLink>
         
         }
         {<aside className="sideText1" style={parallaxStyleText}>

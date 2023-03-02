@@ -89,9 +89,13 @@ function Hero({ darkTheme, pageWidth, menuOpen, setMenuOpen }) {
 }
 
 const ScHero = styled("section")`
+  /* border: 2px dashed coral; */
   width: 100vw;
   height: 100vh;
+  height: 100dvh;
   min-height: 32rem;
+  /* height: clamp(32rem, 100vh, 64rem); */
+  /* height: clamp(32rem, 100dvh, 64rem); */
 
   > * {
     position: absolute;

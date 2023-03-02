@@ -7,6 +7,7 @@ import GlobalStyles from "./GlobalStyles";
 import Home from "./pages/Home";
 import BonniesDanceSchool from "./pages/BonniesDanceSchool";
 import HoneysuckleStudios from "./pages/HoneysuckleStudios";
+import JoinSunder from "./pages/JoinSunder";
 
 // Components
 import Nav from "./components/Nav";
@@ -22,6 +23,14 @@ function App() {
 
   useEffect(() => {
     window.addEventListener("resize", checkWidth);
+    // const checkTheme = () => {
+    //   if (window.matchMedia("(prefers-color-scheme: dark)")) {
+    //     setDarkTheme(true);
+    //   } else if (window.matchMedia("(prefers-color-scheme: light)")) {
+    //     setDarkTheme(false);
+    //   }
+    // };
+    // checkTheme();
 
     return () => window.removeEventListener("resize", checkWidth);
   }, [pageWidth]);
@@ -73,6 +82,18 @@ function App() {
             path="/honeysuckle-studios"
             element={
               <HoneysuckleStudios
+                darkTheme={darkTheme}
+                setDarkTheme={setDarkTheme}
+                pageWidth={pageWidth}
+                menuOpen={menuOpen}
+                setMenuOpen={setMenuOpen}
+              />
+            }
+          />
+          <Route
+            path="/join-sunder"
+            element={
+              <JoinSunder
                 darkTheme={darkTheme}
                 setDarkTheme={setDarkTheme}
                 pageWidth={pageWidth}

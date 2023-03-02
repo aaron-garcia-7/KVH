@@ -15,8 +15,8 @@ import ImageModule from "../components/ImageModule";
 import PageSwiper from "../components/PageSwiper";
 
 // Media
-import mobile from "../images/photos/mobile2.png";
-import desktop from "../images/photos/desktop2.png";
+import mobile from "../images/photos/mobile2.webp";
+import desktop from "../images/photos/desktop2.webp";
 import video from "../videos/video2.mov";
 import wireframe from "../images/photos/wireframe2.png";
 import mockup from "../images/photos/mockup2.png";

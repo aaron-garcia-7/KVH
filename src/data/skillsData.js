@@ -12,7 +12,7 @@ const skillsData = [
     skill1: "Design Strategy / Analysis",
     skill2: "Visual, Motion, Interaction Design",
     skill3: "Wireframing, Prototyping, Storyboarding",
-    skill4: "Figma, Adobe XD, Sketch",
+    skill4: "Figma, Adobe XD, Sketch, Canva",
     skill5: "Responsive & a11y Design",
   },
   {
