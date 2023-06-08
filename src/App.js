@@ -13,7 +13,7 @@ import JoinSunder from "./pages/JoinSunder";
 import Nav from "./components/Nav";
 
 function App() {
-  const [darkTheme, setDarkTheme] = useState(false);
+  const [darkTheme, setDarkTheme] = useState(true);
   const [pageWidth, setPageWidth] = useState(window.innerWidth);
   const [menuOpen, setMenuOpen] = useState(false);
 

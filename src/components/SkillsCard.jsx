@@ -16,7 +16,9 @@ function SkillsCard({cardNum, setCardNum, darkTheme, skill1, skill2, skill3, ski
 
   const cardStyle = {
     background: cardNum === 0 ? 'var(--red)' : cardNum === 1 ? 'var(--blue)' : cardNum === 2 && !darkTheme ? 'var(--dark)' : 'var(--light)',
-    transform: `translate(0, ${offset * -0.08}px)`,
+    // transform: `translate(0, ${offset * -0.08}px)`,
+    // transform: `translate(0, ${offset / -12}px)`,
+    transform: `translate(0, ${offset / -24}px)`,
   }
 
   const headerStyle = {
@@ -81,8 +83,7 @@ function SkillsCard({cardNum, setCardNum, darkTheme, skill1, skill2, skill3, ski
 
 const ScSkillsCard = styled('div')`
     position: absolute;
-    top: 69%; // Four Projects
-    /* top: 62%; */
+    top: 46%;
     width: 100%;
     height: 86%;
     padding: 2.4rem 1.6rem;
@@ -123,15 +124,14 @@ const ScSkillsCard = styled('div')`
     }
 
     @media (max-width: 1224px) {
-        top: 72%;
+        top: 56%;
         header {
             margin: 0.4rem 0 3.2rem 0;
         }
     }
 
     @media (max-width: 768px) {
-        top: 96%; // Four Projects
-        /* top: 84%; */
+        top: 68%;
         header {
             margin: 0 0 2.4rem 0;
         }
@@ -144,8 +144,7 @@ const ScSkillsCard = styled('div')`
     }
 
     @media (max-width: 520px) {
-        top: 106%; // Four Projects
-        /* top: 92%; */
+        top: 72%;
         width: 100%;
         transition: 0s, background 0.6s ease;
         header {

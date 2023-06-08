@@ -14,7 +14,7 @@ function Work({ pageWidth }) {
   // Parallax Effect
   const [offset, setOffset] = useState(0);
   const parallaxScroll = () => {
-    setOffset(window.scrollY);
+    setOffset(window.scrollY / 0.8);
   };
   useEffect(() => {
     window.addEventListener("scroll", parallaxScroll);
@@ -210,7 +210,7 @@ const ScWork = styled("section")`
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: 1s cubic-bezier(0.18, 0.79, 0.49, 1);
+    transition: 1.6s cubic-bezier(0.18, 0.79, 0.49, 1);
     .innerBubble {
       position: absolute;
       width: 100%;

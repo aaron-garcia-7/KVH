@@ -8,7 +8,6 @@ export const pageAnim = {
     y: 0,
     transition: {
       duration: 2,
-      // duration: 1.4,
     },
   },
   exit: {
@@ -16,7 +15,6 @@ export const pageAnim = {
     y: -50,
     transition: {
       duration: 0.8,
-      // duration: 1.4,
     },
   },
 };
@@ -30,7 +28,61 @@ export const swiperAnim = {
     bottom: ["-50%", "100%"],
     height: ["50vh", "180vh", "50vh"],
     transition: {
-      duration: 1.4,
+      duration: 1.06,
+    },
+  },
+  exit: {
+    bottom: "-50%",
+    height: 0,
+  },
+};
+
+export const swiperAnim2 = {
+  initial: {
+    bottom: "-50%",
+    height: 0,
+  },
+  animate: {
+    bottom: ["-50%", "100%"],
+    height: ["50vh", "180vh", "50vh"],
+    transition: {
+      duration: 1.12,
+    },
+  },
+  exit: {
+    bottom: "-50%",
+    height: 0,
+  },
+};
+
+export const swiperAnim3 = {
+  initial: {
+    bottom: "-50%",
+    height: 0,
+  },
+  animate: {
+    bottom: ["-50%", "100%"],
+    height: ["50vh", "180vh", "50vh"],
+    transition: {
+      duration: 1.18,
+    },
+  },
+  exit: {
+    bottom: "-50%",
+    height: 0,
+  },
+};
+
+export const swiperAnim4 = {
+  initial: {
+    bottom: "-50%",
+    height: 0,
+  },
+  animate: {
+    bottom: ["-50%", "100%"],
+    height: ["50vh", "180vh", "50vh"],
+    transition: {
+      duration: 1.24,
     },
   },
   exit: {

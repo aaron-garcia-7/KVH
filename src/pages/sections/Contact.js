@@ -21,7 +21,8 @@ function Contact({ darkTheme, inHome }) {
     transform: `translate(0, ${offset * 0.08}px)`,
   };
   const parallaxStyleSend = {
-    transform: `translate(0, ${offset * -0.1}px)`,
+    // transform: `translate(0, ${offset * -0.1}px)`,
+    transform: `translate(0, calc(100% - ${offset / 20}px))`,
   };
   // End Parallax
 
@@ -250,8 +251,7 @@ const ScContact = styled("section")`
 
     .submitDiv {
       position: absolute;
-      top: 200%; // Four Projects
-      /* top: 186%; */
+      bottom: -40%;
       right: -22%;
       width: calc(4.8rem + 4vw);
       height: calc(4.8rem + 4vw);
@@ -439,8 +439,6 @@ const ScContact = styled("section")`
   @media (max-width: 1440px) {
     form {
       .submitDiv {
-        top: 192%; // Four Projects
-        /* top: 180%; */
         right: -16%;
       }
       .altSubmit {
@@ -467,11 +465,6 @@ const ScContact = styled("section")`
       transform: scale(0.9);
       top: 28%;
       left: 12%;
-      .submitDiv {
-        top: 190%; // Four Projects
-        /* top: 176%; */
-        right: -16%;
-      }
       .altSubmit {
         top: 150%;
       }
@@ -504,11 +497,6 @@ const ScContact = styled("section")`
       transform: scale(0.9);
       top: 24%;
       left: 8% !important;
-      .submitDiv {
-        top: 190%; // Four Projecs
-        /* top: 178%; */
-        right: -16%;
-      }
       .altSubmit {
         top: 182%;
       }
@@ -546,8 +534,7 @@ const ScContact = styled("section")`
         }
       }
       .submitDiv {
-        top: 216%; // Four Projects
-        /* top: 204%; */
+        bottom: -52%;
         right: -10%;
       }
       .altSubmit {
@@ -577,8 +564,6 @@ const ScContact = styled("section")`
     form {
       width: 80%;
       .submitDiv {
-        top: 224%; // Four Projects
-        /* top: 206%; */
         transition: 0s;
       }
       .altSubmit {
@@ -616,9 +601,7 @@ const ScContact = styled("section")`
     form {
       width: 80%;
       .submitDiv {
-        top: 212%; // Remove when Iconic is added
         .planeDiv {
-          /* border: 1px solid blue; */
           top: -16%;
           left: -16%;
           width: 120%;

@@ -57,7 +57,6 @@ function Hero({ darkTheme, pageWidth, menuOpen, setMenuOpen }) {
           Garcia
         </h1>
         <h3 style={roleStyle}>
-          {/* <h3> */}
           SLC Based
           <br />
           UX Designer
@@ -89,13 +88,10 @@ function Hero({ darkTheme, pageWidth, menuOpen, setMenuOpen }) {
 }
 
 const ScHero = styled("section")`
-  /* border: 2px dashed coral; */
   width: 100vw;
   height: 100vh;
   height: 100dvh;
   min-height: 32rem;
-  /* height: clamp(32rem, 100vh, 64rem); */
-  /* height: clamp(32rem, 100dvh, 64rem); */
 
   > * {
     position: absolute;
@@ -263,12 +259,6 @@ const ScHero = styled("section")`
       }
     }
   }
-
-  /* @media (max-width: 480px) {
-    .scrollBubble {
-      bottom: 12%;
-    }
-  } */
 `;
 
 export default Hero;

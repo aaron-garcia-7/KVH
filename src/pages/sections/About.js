@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import Tilt from "react-parallax-tilt";
 import skillsData from "../../data/skillsData";
 import resume from "../../documents/resume.pdf";
 
@@ -71,6 +72,13 @@ function About({ darkTheme }) {
           {!darkTheme && <img src={arrow} alt="" />}
           {darkTheme && <img src={arrow2} alt="" />}
         </div>
+        {/* <Tilt
+          tiltReverse={false}
+          perspective={2000}
+          tiltMaxAngleX={4}
+          tiltMaxAngleY={4}
+          transitionEasing="cubic-bezier(.03,.98,.52,.99)"
+        > */}
         <SkillsCard
           cardNum={cardNum}
           setCardNum={setCardNum}
@@ -82,6 +90,7 @@ function About({ darkTheme }) {
           skill5={skillsData[cardNum].skill5}
           setCardSpeed={setCardSpeed}
         />
+        {/* </Tilt> */}
       </div>
       <div className="aboutBubbleDiv" style={parallaxStyle}>
         <div className="aboutBubble" />
