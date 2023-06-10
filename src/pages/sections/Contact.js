@@ -299,7 +299,7 @@ const ScContact = styled("section")`
       }
     }
     .altSubmit {
-      top: 170%;
+      bottom: -24%;
     }
   }
   .altLinks {
@@ -441,9 +441,6 @@ const ScContact = styled("section")`
       .submitDiv {
         right: -16%;
       }
-      .altSubmit {
-        top: 162%;
-      }
     }
     .altLinks {
       right: 12%;
@@ -465,9 +462,6 @@ const ScContact = styled("section")`
       transform: scale(0.9);
       top: 28%;
       left: 12%;
-      .altSubmit {
-        top: 150%;
-      }
     }
     .altLinks {
       top: 22%;
@@ -498,7 +492,7 @@ const ScContact = styled("section")`
       top: 24%;
       left: 8% !important;
       .altSubmit {
-        top: 182%;
+        bottom: -32%;
       }
     }
     .altLinks {
@@ -538,7 +532,7 @@ const ScContact = styled("section")`
         right: -10%;
       }
       .altSubmit {
-        top: 194%;
+        bottom: -40%;
       }
     }
     .altLinks {
@@ -567,7 +561,7 @@ const ScContact = styled("section")`
         transition: 0s;
       }
       .altSubmit {
-        top: 210%;
+        bottom: -46%;
       }
     }
     .altLinks {

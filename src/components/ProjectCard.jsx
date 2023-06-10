@@ -85,7 +85,7 @@ function ProjectCard({id, title, name1, name2, name3, img, role, role2, date, ur
             </Link>} */}
         <aside className="sideText1" style={parallaxStyleText}>
             <h3 className="a11y">{title}</h3>
-            <h3 className={id === 4 ? "singleLine" : null}><span>{name1}</span><br /><span>{name2}</span><br /><span>{name3}</span></h3>
+            <h3 className={id === 3 || id === 4 ? "singleLine" : null}><span>{name1}</span><br /><span>{name2}</span><br /><span>{name3}</span></h3>
             <p className='role1'>{role}</p>
             <p className='role2'>{role2}</p>
             <p className='cardDate'>{date}</p>
@@ -94,7 +94,8 @@ function ProjectCard({id, title, name1, name2, name3, img, role, role2, date, ur
         <aside className="sideText2">
             <h3 className="a11y">{title}</h3>
             <h3>{title}</h3>
-            <p className='role1'>{role}{role2 && ` + ${role2}`}</p>
+            {id !== 2 && <p className='role1'>{role}{role2 && ` ${role2}`}</p>}
+            {id === 2 && <p className='role1'>{role}{role2 && ` + ${role2}`}</p>}
             <p className='cardDate'>{date}</p>
         </aside>
     </ScProjectCard>

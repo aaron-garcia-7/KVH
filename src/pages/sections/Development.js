@@ -149,7 +149,6 @@ const ScDevelopment = styled("section")`
   .developmentText {
     top: 46%;
     right: 8%;
-    text-align: right;
     width: calc(16rem + 16vw);
     &::before {
       content: "04";
@@ -158,7 +157,7 @@ const ScDevelopment = styled("section")`
       letter-spacing: 0.2rem;
       position: absolute;
       bottom: 100%;
-      left: 100%;
+      right: 100%;
       opacity: 0;
       animation: fade 2s ease 0.2s forwards;
     }
@@ -314,8 +313,7 @@ const ScDevelopment = styled("section")`
   @media (max-width: 480px) {
     .developmentText {
       &::before {
-        left: auto;
-        right: 0;
+        left: 0;
       }
     }
     .mockup {

@@ -42,7 +42,6 @@ function Goal({ id, video, subText, emoji, text1, text2, text3 }) {
 }
 
 const ScGoal = styled("section")`
-  /* border: 1px dashed forestgreen; */
   height: calc(18rem + 36vw);
 
   > * {
@@ -67,7 +66,6 @@ const ScGoal = styled("section")`
   .goalText {
     top: 38%;
     right: 8%;
-    text-align: right;
     width: calc(16rem + 16vw);
     &::before {
       content: "02";
@@ -76,7 +74,7 @@ const ScGoal = styled("section")`
       letter-spacing: 0.2rem;
       position: absolute;
       bottom: 100%;
-      left: 100%;
+      right: 100%;
       opacity: 0;
       animation: fade 2s ease 0.2s forwards;
     }
@@ -152,7 +150,6 @@ const ScGoal = styled("section")`
     }
     .goalText {
       top: 4%;
-      /* width: 56vw; */
       width: 36rem;
       &::before {
         transform: scale(0.8);
@@ -191,20 +188,18 @@ const ScGoal = styled("section")`
   }
 
   @media (max-width: 520px) {
-    /* border: 1px dashed forestgreen; */
     height: calc(32rem + 64vw);
     .goalText {
-      top: -6%;
+      top: -2%;
       h2 {
         transform: translate(0, 0) scale(1);
-        /* margin-bottom: calc(4rem + 2vw); */
       }
       p {
         font-size: calc(0.8rem + 0.8vw);
       }
     }
     .videoContainer {
-      top: 60%;
+      top: 54%;
     }
     .goalBubbleDiv {
       transition: 0s;
@@ -214,8 +209,7 @@ const ScGoal = styled("section")`
   @media (max-width: 480px) {
     .goalText {
       &::before {
-        left: auto;
-        right: 0;
+        left: 0;
       }
     }
   }

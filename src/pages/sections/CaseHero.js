@@ -29,7 +29,15 @@ function CaseHero({
       />
       <div
         className="caseHeroText"
-        id={id === 1 ? "caseHeroText1" : id === 2 ? "caseHeroText2" : null}
+        id={
+          id === 1
+            ? "caseHeroText1"
+            : id === 2
+            ? "caseHeroText2"
+            : id === 3
+            ? "caseHeroText3"
+            : null
+        }
       >
         <h1>
           <span>{title1}</span>
@@ -65,6 +73,7 @@ const ScCaseHero = styled("section")`
     position: absolute;
   }
   .caseHeroText {
+    /* border: 2px dashed yellow; */
     top: 34%;
     left: 14%;
     width: 32vw;
@@ -78,8 +87,6 @@ const ScCaseHero = styled("section")`
       content: "01";
       font-family: "Raleway", sans-serif;
       position: absolute;
-      /* top: calc(-0.8rem - 0.8vw); */
-      /* left: calc(-1.2rem - 1.2vw); */
       bottom: 100%;
       right: 100%;
       font-size: calc(0.7rem + 0.7vw);

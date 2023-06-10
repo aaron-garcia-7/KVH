@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { pageAnim } from "../animations/pageAnim";
 import ScrollToTop from "../router/ScrollToTop";
@@ -26,6 +26,15 @@ function BonniesDanceSchool({ darkTheme, pageWidth }) {
   const [showModule, setShowModule] = useState(false);
   const [moduleImg, setModuleImg] = useState("");
   const [moduleName, setModuleName] = useState("");
+
+  useEffect(() => {
+    if (showModule) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [showModule]);
+
   return (
     <div>
       <ScBonniesDanceSchool
@@ -53,9 +62,7 @@ function BonniesDanceSchool({ darkTheme, pageWidth }) {
         <Goal
           id={1}
           video={video}
-          // subText={"The intro and menu animations were really fun to make"}
           subText={"The intro and menu animations get me every time"}
-          // emoji={" 😊"}
           emoji={" 😮‍💨"}
           text1={
             "Bonnie’s Dance School is a private/home dance studio located in West Jordan, UT. They offer lessons for a wide range of dance styles including ballet, contemporary, and jazz, all for a excellent deal."

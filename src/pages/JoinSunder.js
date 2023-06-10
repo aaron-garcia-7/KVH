@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { pageAnim } from "../animations/pageAnim";
 import ScrollToTop from "../router/ScrollToTop";
@@ -19,14 +19,23 @@ import ImageModule from "../components/ImageModule";
 // Media
 import mobile from "../images/photos/mobile3.webp";
 import desktop from "../images/photos/desktop3.webp";
-import video from "../videos/video1.mov";
-import wireframe from "../images/photos/wireframe1.png";
-import mockup from "../images/photos/mockup1.png";
+import video from "../videos/video3.mov";
+import wireframe from "../images/photos/wireframe3.png";
+import mockup from "../images/photos/mockup3.webp";
 
 function JoinSunder({ darkTheme, pageWidth }) {
   const [showModule, setShowModule] = useState(false);
   const [moduleImg, setModuleImg] = useState("");
   const [moduleName, setModuleName] = useState("");
+
+  useEffect(() => {
+    if (showModule) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [showModule]);
+
   return (
     <div>
       <ScJoinSunder
@@ -37,13 +46,13 @@ function JoinSunder({ darkTheme, pageWidth }) {
       >
         <ScrollToTop />
         <CaseHero
-          id={2}
-          title={"Join Sunder Energy"}
-          title1={"Join"}
-          title2={"Sunder Energy"}
+          id={3}
+          title={"Join Sunder"}
+          title1={"Join Sunder"}
+          title2={""}
           title3={""}
-          role1={"Design + Development"}
-          role2={""}
+          role1={"Motion Design +"}
+          role2={"Front-end Development"}
           date={"Feb. 2023"}
           url={"https://joinsunder.com/"}
           img1={mobile}
@@ -52,31 +61,29 @@ function JoinSunder({ darkTheme, pageWidth }) {
           pageWidth={pageWidth}
         />
         <Goal
-          id={2}
+          id={3}
           video={video}
           subText={
-            "The text that pans across the screen responds to the user scroll"
+            "The navigation menu & call to actions offer unique animations & transitions"
+            // "There are some pretty unique animations across the site. Go experience them!"
           }
-          emoji={" 🫠"}
-          // emoji={" 😮"}
-          text1={
-            "Honeysuckle Studios is a private/home eyelash studio located in West Jordan, UT. Bailey, the owner, offers a wide range of professional grade lash styles including classic, hybrid, and volume, at a competitive price."
-          }
+          emoji={" 😎"}
+          text1={`Sunder Energy is a solar sales company on a mission "to give people that power to change the future." Sunder’s focus is to disrupt the way America produces its energy.`}
           text2={
-            "Established in 2021, Bailey has grown her clientele and business to allow her to pursue the art of eyelash extensions full-time."
+            "Established in 2019, long-time friends Max Britton and Eric Nielsen took their solar industry experience and turned it into a business."
           }
           text3={
-            "with this project was to update the original design, which I had previously made. Main pain points from the original site were: lack of call to action, dated look, and not the best color usage. There was also a lack of visual hierarchy with the navigation links."
+            "with this project was to provide a unique website where opportunity driven people could sign up and work with Sunder, all while showcasing the benefits and growth that Sunder offers."
           }
         />
         <Design
-          id={2}
-          title={"Honeysuckle Studios"}
+          id={3}
+          title={"Join Sunder"}
           text1={
-            "The design procress was motivating and encouraging. I would say that after many prior projects, this was the first website where I discovered my “style”, a more minimalistic look with a blend of modern and classic. This was where I began to feel confident in my work and proud to show it to the world."
+            "The design process was mainly handled by the Creative Director at Sunder Energy. Using Figma, we were able to collaborate with ease (even in real time!) and share assets quickly."
           }
           text2={
-            "The prior concept was definitely unique, however I wanted to provide a more natural user experience and reduce the amount of user clicks needed to navigate the page, which the previous site relied heavily on."
+            "On many occasions throughout the project, I was given the opportunity to provide design insights and suggestions along with crafting a variety of ideas for animations, transitions, and motion design."
           }
           wireframe={wireframe}
           setShowModule={setShowModule}
@@ -85,13 +92,13 @@ function JoinSunder({ darkTheme, pageWidth }) {
           darkTheme={darkTheme}
         />
         <Development
-          title={"Honeysuckle Studios"}
+          title={"Join Sunder"}
           mockup={mockup}
           text1={
-            "The development process was a great learning experience. I have worked with honeysuckle studios since my earliest days of learning web development. I’ve built the site with vanilla html, css, and js and have rebuilt it with react and animation libraries such as framer motion."
+            "The development process was a journey filled with ups and downs. I started the project using NextJS 13, but since it was in beta at the time and this was my first enterprise client I decided to build the site with something I was more familiar with: html, scss, and vanilla javascript."
           }
           text2={
-            "Dependencies for this project include: framer motion, react-intersection-observer, react-scroll, and styled components. To view the source code, visit my "
+            "Green Sock Animation Platform provided many seemless solutions for animations that would have been tricky and costly. Their ScrollTrigger Plugin was very handy and is used throughout the site. To view the source code, visit my "
           }
           setShowModule={setShowModule}
           setModuleImg={setModuleImg}
@@ -105,7 +112,7 @@ function JoinSunder({ darkTheme, pageWidth }) {
           moduleImg={moduleImg}
           setModuleImg={setModuleImg}
           moduleName={moduleName}
-          title={"Honeysuckle Studios"}
+          title={"Join Sunder"}
         />
       </ScJoinSunder>
       <PageSwiper />
@@ -114,28 +121,46 @@ function JoinSunder({ darkTheme, pageWidth }) {
 }
 
 const ScJoinSunder = styled(motion.div)`
-  #caseHeroText1 {
-    top: 30%;
+  #caseHeroText3 {
+    top: 40%;
+    h1 {
+      height: 4.8rem;
+      width: calc(8rem + 46vw);
+    }
+  }
+
+  @media (max-width: 1440px) {
+    #caseHeroText3 {
+      top: 38%;
+    }
   }
 
   @media (max-width: 1024px) {
-    #caseHeroText1 {
-      top: 28%;
+    #caseHeroText3 {
+      top: 34%; // default
     }
   }
 
   @media (max-width: 768px) {
-    #caseHeroText1 {
+    #caseHeroText3 {
       top: 22%;
     }
-    #imgContainer1 {
+    #imgContainer3 {
       top: 62%;
     }
   }
 
+  @media (max-width: 520px) {
+    #caseHeroText3 {
+      h1 {
+        transform: translate(0, 20%);
+      }
+    }
+  }
+
   @media (max-height: 640px) {
-    #caseHeroText1 {
-      top: 24%;
+    #caseHeroText3 {
+      top: 28%;
     }
   }
 `;

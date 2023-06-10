@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { pageAnim } from "../animations/pageAnim";
 import ScrollToTop from "../router/ScrollToTop";
@@ -25,6 +25,14 @@ function HoneysuckleStudios({ darkTheme, pageWidth }) {
   const [showModule, setShowModule] = useState(false);
   const [moduleImg, setModuleImg] = useState("");
   const [moduleName, setModuleName] = useState("");
+
+  useEffect(() => {
+    if (showModule) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [showModule]);
 
   return (
     <div>
@@ -57,7 +65,6 @@ function HoneysuckleStudios({ darkTheme, pageWidth }) {
             "The text that pans across the screen responds to the user scroll"
           }
           emoji={" 🫠"}
-          // emoji={" 😮"}
           text1={
             "Honeysuckle Studios is a private/home eyelash studio located in West Jordan, UT. Bailey, the owner, offers a wide range of professional grade lash styles including classic, hybrid, and volume, at a competitive price."
           }

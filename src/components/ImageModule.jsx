@@ -10,7 +10,7 @@ function ImageModule({showModule, setShowModule, moduleImg, setModuleImg, module
   }
 
   const closeStyle = {
-    opacity: 0.5,
+    opacity: 1,
   }
 
 
@@ -24,14 +24,11 @@ function ImageModule({showModule, setShowModule, moduleImg, setModuleImg, module
             <p>{title}</p>
         </header>
         <div className="closeDiv" style={showModule ? closeStyle : null}>
-            <p>Tap</p>
-            <p>anywhere to</p>
-            <p>close</p>
+            <p>Tap anywhere</p>
+            <p>to close</p>
         </div>
-        <div className="closeDiv" style={showModule ? closeStyle : null}>
-            <p>Tap</p>
-            <p>anywhere to</p>
-            <p>close</p>       
+        <div className='abstractText'>
+            <h4>{moduleName}</h4>
         </div>
         <figure>
             <img src={moduleImg} alt="" />
@@ -53,6 +50,7 @@ const ScImageModule = styled('div')`
     pointer-events: none;
     transition: opacity 0.6s cubic-bezier(0.21, 0.81, 0.55, 1.02);
     header {
+        /* border: 2px solid yellow; */
         position: fixed;
         top: 10vw;
         right: 6vw;
@@ -69,30 +67,33 @@ const ScImageModule = styled('div')`
         }
     }
     .closeDiv {
+        /* border: 2px solid yellow; */
         position: fixed;
+        bottom: 10vw;
+        right: 6vw;
         opacity: 0;
-        transition: opacity 0.6s cubic-bezier(0.21, 0.81, 0.55, 1.02) 1s;
-        &:nth-of-type(1) {
-            top: 6vw;
-            left: 6vw;
-        }
-        &:nth-of-type(2) {
-            bottom: 6vw;
-            right: 6vw;
-            transition-delay: 1.3s;
-        }
+        transition: opacity 0.6s cubic-bezier(0.21, 0.81, 0.55, 1.02) 0.2s;
         p {
-            font-size: calc(0.4rem + 1vw);
+            color: var(--light);
+            font-size: calc(1rem + 0.6vw);
+            font-weight: 300;
             text-transform: uppercase;
             letter-spacing: 0.08rem;
-            cursor: pointer;
-            &:nth-of-type(1) {
-                font-size: calc(1.2rem + 1vw);
+            &:nth-of-type(2) {
+                color: var(--red);
             }
-            &:nth-of-type(3) {
-                font-size: calc(1rem + 1vw);
-                text-align: right;
-            }
+        }
+    }
+    .abstractText {
+        position: fixed;
+        top: 50%;
+        left: 0;
+        transform: translate(-26%, -50%);
+        h4 {
+            font-size: calc(1.2rem + 8vw);
+            text-transform: uppercase;
+            transform: rotate(-90deg);
+            color: var(--blue);
         }
     }
     figure {
@@ -113,9 +114,10 @@ const ScImageModule = styled('div')`
     @media (max-width: 1024px) {
         min-height: 48rem;
         .closeDiv {
-            &:nth-of-type(2) {
-                bottom: 4vw;
-            }
+            bottom: 4vw;
+        }
+        .abstractText {
+            transform: translate(-36%, -50%);
         }
         figure {
             width: 36rem;
@@ -134,21 +136,46 @@ const ScImageModule = styled('div')`
             right: 10vw;
         }
         .closeDiv {
-            &:nth-of-type(1) {
-                left: 10vw;
-            }
-            &:nth-of-type(2) {
-                right: 10vw;
+            right: 10vw;
+        }
+        .abstractText {
+            top: 8vw;
+            left: 10vw;
+            transform: translate(0, 0);
+            h4 {
+                font-size: calc(1.2rem + 6vw);
+                transform: rotate(0deg);
+                opacity: 0.2;
             }
         }
         figure {
-            top: 50%;
+            top: 50vh;
+            top: 50dvh;
             transform: translate(-50%, -50%);
             width: 80vw;
             height: 58vh;
-            min-height: 16rem;
+            height: 58dvh;
+            min-height: 25rem;
         }
     }
+
+    @media (max-width: 520px) {
+        .abstractText {
+            display: none;
+        }
+        /* figure {
+            top: 46%;
+        } */
+        .closeDiv {
+            bottom: 6dvw;
+        }
+    }
+
+    /* @media (max-width: 480px) {
+        figure {
+            top: 44%;
+        }
+    } */
 `
 
 export default ImageModule

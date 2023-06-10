@@ -73,11 +73,7 @@ function Design({
               className="colorBlock"
               onClick={() => handleCopy(item)}
             >
-              <div
-                className="color"
-                style={{ background: item }}
-                // onClick={() => navigator.clipboard.writeText(item)}
-              />
+              <div className="color" style={{ background: item }} />
               <p className="textbox">
                 {item} <br />
                 <span className={copy ? "show" : ""}>copied!</span>
@@ -169,6 +165,9 @@ const ScDesign = styled("section")`
         &:nth-of-type(5) {
           left: 40%;
         }
+        &:nth-of-type(6) {
+          left: 50%;
+        }
         .color {
           margin-bottom: 1rem;
           width: calc(2.4rem + 2.4vw);
@@ -181,7 +180,6 @@ const ScDesign = styled("section")`
           opacity: 0;
           transition: 0.4s ease;
           span {
-            /* font-size: calc(0.4rem + 0.4vw); */
             text-transform: uppercase;
             opacity: 0;
           }
@@ -324,6 +322,9 @@ const ScDesign = styled("section")`
           }
           &:nth-of-type(5) {
             left: 32%;
+          }
+          &:nth-of-type(6) {
+            left: 40%;
           }
         }
       }
