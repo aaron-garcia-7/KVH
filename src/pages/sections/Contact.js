@@ -47,8 +47,9 @@ function Contact({ darkTheme, inHome }) {
             placeholder=" "
             required
             className="input"
+            aria-labelledby="name-label"
           />
-          <label htmlFor="name" className="label">
+          <label htmlFor="name" className="label" id="name-label">
             Name
           </label>
         </div>
@@ -59,22 +60,24 @@ function Contact({ darkTheme, inHome }) {
             placeholder=" "
             required
             className="input"
+            aria-labelledby="email-label"
           />
-          <label htmlFor="email" className="label">
+          <label htmlFor="email" className="label" id="email-label">
             Email
           </label>
         </div>
         <div className="formField">
           <textarea
             name="message"
-            id=""
+            id="message"
             cols="30"
             rows="6"
             placeholder=" "
             required
             className="textArea"
+            aria-labelledby="message-label"
           ></textarea>
-          <label htmlFor="message" className="label">
+          <label htmlFor="message" className="label" id="message-label">
             Message
           </label>
         </div>

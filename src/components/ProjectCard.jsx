@@ -43,7 +43,7 @@ function ProjectCard({id, title, name1, name2, name3, img, role, role2, date, ur
                 </figure>
             </NavLink> :
             <a           
-            href="https://joinsunder.com/"
+            href="https://aaronsproject.net/"
             target="_blank"
             rel='noreferrer'
                 onMouseEnter={

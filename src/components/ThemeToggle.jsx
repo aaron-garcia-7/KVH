@@ -18,7 +18,7 @@ function ThemeToggle({darkTheme, setDarkTheme, setMenuOpen}) {
     }
 
   return (
-<ScThemeToggle style={switchStyle} tabIndex={6} onFocus={() => {setMenuOpen(false)}} onKeyDown={(event) => {
+<ScThemeToggle aria-label='light/dark theme toggle' style={switchStyle} tabIndex={6} onFocus={() => {setMenuOpen(false)}} onKeyDown={(event) => {
     if(event.key === "Enter"){
         setDarkTheme(prev => !prev);
     }

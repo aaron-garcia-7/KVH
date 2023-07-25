@@ -64,22 +64,22 @@ function SocialMediaBtn({darkTheme, pageWidth, menuOpen, setMenuOpen}) {
             <div className="bubble" style={bubbleStyle} onClick={() => setMenuOpen(prev => !prev)}>
                 <img src={plus} alt="" />
             </div>
-            <div className="tabIndex" tabIndex={2} onFocus={() => setMenuOpen(true)} />
+            <div className="tabIndex" tabIndex={2} onFocus={() => setMenuOpen(true)} aria-label='social media menu' />
         </div>
         <ul>
             <li className='twitterItem' style={twitterStyle}>
                 <a href="https://twitter.com/aaron_garcia_7" target="_blank" rel="noreferrer" tabIndex={3}>
-                    <img src={twitter} alt="" />
+                    <img src={twitter} alt="twitter icon" />
                 </a>
             </li>
             <li className='linkedinItem' style={linkedinStyle}>
                 <a href="https://www.linkedin.com/in/aaron-garcia-3b7081211/" target="_blank" rel="noreferrer" tabIndex={4}>
-                    <img src={linkedin} alt="" />
+                    <img src={linkedin} alt="linkedIn icon" />
                 </a>
             </li>
             <li className='githubItem' style={githubStyle}>
                 <a href="https://github.com/aaron-garcia-7" target="_blank" rel="noreferrer" tabIndex={5} onFocus={() => setMenuOpen(true)}>
-                    <img src={github} alt="" />
+                    <img src={github} alt="github icon" />
                 </a>
             </li>
         </ul>

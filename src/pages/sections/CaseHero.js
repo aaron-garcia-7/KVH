@@ -46,9 +46,9 @@ function CaseHero({
           <br />
           <span>{title3}</span>
         </h1>
-        <h3>
+        <h2 className="project-role">
           <span>{role1}</span> <br /> <span>{role2}</span>
-        </h3>
+        </h2>
         <p>{date}</p>
         <a href={url} target="_blank" rel="noreferrer" className="blueBtn">
           <p>Visit Site</p>
@@ -100,7 +100,7 @@ const ScCaseHero = styled("section")`
       font-size: calc(2rem + 2vw);
       margin-bottom: calc(1rem + 1vw);
     }
-    h3 {
+    .project-role {
       font-size: calc(0.6rem + 0.6vw);
       font-weight: 300;
       margin-bottom: calc(0.6rem + 0.6vw);
