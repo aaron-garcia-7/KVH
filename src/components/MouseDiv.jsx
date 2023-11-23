@@ -2,27 +2,27 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 
 function MouseDiv({cardHover, cardHoverLast}) {
-
-    const [posX, setPosX] = useState(window.pageX);
-    const [posY, setPosY] = useState(window.pageY);
+    const [posX, setPosX] = useState(0);
+    const [posY, setPosY] = useState(0);
 
     const locateMouse = e => {
-        setPosX(e.pageX);
-        setPosY(e.pageY);
+        setPosX(e.clientX - window.innerWidth / 2);
+        setPosY(e.clientY - window.innerHeight / 2);
     }
 
     useEffect(() => {
-        setPosY(window.scrollY);
         window.addEventListener('mousemove', locateMouse);
 
         return () => window.removeEventListener('mousemove', locateMouse);
     }, [])
 
   const mouseStyle = {
-    top: `calc(${posY}px - 108vh)`,
-    left: `calc(${posX}px - calc(2rem + 1vw))`,
-    opacity: cardHover ? 1 : 0,
-    transform: cardHover ? 'scale(1)' : 'scale(0)',
+    position: 'fixed',
+    top: 'calc(50% - calc(4rem + 2vw) / 2)',
+    left: 'calc(50% - calc(4rem + 2vw) / 2)',
+    translate: `${posX}px ${posY}px`,
+    opacity: cardHover ? '1' : '0',
+    scale: cardHover ? '1' : '0',
   }
 
   return (
@@ -33,7 +33,6 @@ function MouseDiv({cardHover, cardHoverLast}) {
 }
 
 const ScMouseDiv = styled('div')`
-    position: absolute;
     background: var(--light);
     width: calc(4rem + 2vw);
     height: calc(4rem + 2vw);

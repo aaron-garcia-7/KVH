@@ -52,7 +52,7 @@ function HoneysuckleStudios({ darkTheme, pageWidth }) {
           role1={"Visual & Interaction Design"}
           role2={"+ Front-End Development"}
           date={"Aug. 2022"}
-          url={"https://honeysuckle-studios.com/"}
+          url={"https://honeysuckle-studios.netlify.app/"}
           img1={mobile}
           img2={desktop}
           darkTheme={darkTheme}
